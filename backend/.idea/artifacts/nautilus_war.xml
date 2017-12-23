@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nautilus:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="nautilus.war">
+      <element id="artifact" artifact-name="nautilus:war exploded" />
+    </root>
+  </artifact>
+</component>
