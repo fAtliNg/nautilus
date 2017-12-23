@@ -1,4 +1,0 @@
-0:0:0:0:0:0:0:1 - - [23/Dec/2017:20:56:06 +0300] "GET /nautilus/ru/personalinfo HTTP/1.1" 200 50 http-bio-8080-exec-1 106
-0:0:0:0:0:0:0:1 - - [23/Dec/2017:20:56:07 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
-0:0:0:0:0:0:0:1 - - [23/Dec/2017:20:57:16 +0300] "GET /nautilus/ru/personalinfo HTTP/1.1" 200 50 http-bio-8080-exec-1 28771
-0:0:0:0:0:0:0:1 - - [23/Dec/2017:21:06:05 +0300] "GET /nautilus/ru/personalinfo HTTP/1.1" 200 50 http-bio-8080-exec-1 112
