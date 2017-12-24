@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 // import {fetchHomePageData, clearHomePageData} from '../../actions/actions';
 
-class NewsPage extends Component {
+class PlayersPage extends Component {
     componentWillMount() {
         // this.props.fetchHomePageData();
     }
@@ -15,7 +15,7 @@ class NewsPage extends Component {
     render() {
         return (
             <div>
-                News page
+                Players page
             </div>
         );
     }
@@ -26,4 +26,4 @@ export default connect(
     }),
     dispatch => ({
     })
-)(NewsPage);
+)(PlayersPage);

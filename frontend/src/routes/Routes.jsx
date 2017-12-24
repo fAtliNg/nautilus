@@ -1,33 +1,31 @@
 import React from 'react'
-import {Router, Route, IndexRoute, hashHistory, IndexRedirect} from 'react-router';
+import {
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch
+} from 'react-router-dom'
+
 import App from '../components/App/App';
 import NewsPage from '../containers/NewsPage/NewsPage';
+import PlayersPage from '../containers/PlayersPage/PlayersPage';
+import AboutClubPage from '../containers/AboutClubPage/AboutClubPage';
+import PhotoPage from '../containers/PhotoPage/PhotoPage';
+import VideoPage from '../containers/VideoPage/VideoPage';
 
 const Routes = () => {
     return (
-        <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRedirect to="/home"/>
-                <Route path="home">
-                    <IndexRoute component={HomePage}/>
-                </Route>
-                <Route path="aboutme">
-                    <IndexRoute component={AboutMePage}/>
-                </Route>
-                <Route path="skills">
-                    <IndexRoute component={SkillsPage}/>
-                </Route>
-                <Route path="experience">
-                    <IndexRoute component={ExperiencePage}/>
-                </Route>
-                <Route path="certificates">
-                    <IndexRoute component={CertificatesPage}/>
-                </Route>
-                <Route path="contact">
-                    <IndexRoute component={ContactPage}/>
-                </Route>
-            </Route>
-            {/*<Redirect from='/*' to='/404'/>*/}
+        <Router>
+            <App>
+                <Switch>
+                    <Redirect exact from='/' to='/news'/>
+                    <Route path="/news" component={NewsPage}/>
+                    <Route path="/players" component={PlayersPage}/>
+                    <Route path="/club" component={AboutClubPage}/>
+                    <Route path="/photo" component={PhotoPage}/>
+                    <Route path="/video" component={VideoPage}/>
+                </Switch>
+            </App>
         </Router>
     )
 };
