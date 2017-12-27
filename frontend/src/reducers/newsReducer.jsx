@@ -1,24 +1,25 @@
 const initialState = {
-    certificates: [],
+    entries: [],
     state: 'initial'
 };
 
 export default (state = initialState, action) => {
     let newState = state;
     switch (action.type) {
-        case 'FETCH.NEWS.DATA':
+        case 'FETCH.NEWSPAGE.ENTRIES.DATA':
             newState = {
                 ...state,
                 state: 'receiving'
             };
             break;
-        case 'SET.NEWS.DATA':
+        case 'SET.NEWSPAGE.ENTRIES.DATA':
             newState = {
-                ...action.payload,
+                ...state,
+                entries: action.payload,
                 state: 'is_established'
             };
             break;
-        case 'CLEAR.NEWS.DATA':
+        case 'CLEAR.NEWSPAGE.ENTRIES.DATA':
             newState = initialState;
             break;
         default:

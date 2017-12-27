@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
-import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
@@ -46,15 +46,21 @@ class Entry extends React.Component {
     };
 
     render() {
-        const { classes, title, image, imageTitle, summary, article, date } = this.props;
-        console.log(this.props);
+        const { classes, title, image, summary, article, date } = this.props;
         return (
             <div>
                 <Card className={classes.card}>
                     <CardHeader
                         avatar={
                             <Avatar aria-label="Recipe" className={classes.avatar}>
-                                <img src={"https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"} style={{width: 40, height: 40}}/>
+                                <img
+                                    src={"https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"}
+                                    style={{
+                                        width: 40,
+                                        height: 40
+                                    }}
+                                    alt="avatar"
+                                />
                             </Avatar>
                         }
                         action={
@@ -67,7 +73,13 @@ class Entry extends React.Component {
                     />
                     <CardContent className={classes.content}>
                         <Typography component="p">
-                            <img src={image} style={{width: "100%", }}/>
+                            <img
+                                src={image}
+                                style={{
+                                    width: "100%"
+                                }}
+                                alt="image"
+                            />
                             {summary}
                         </Typography>
                     </CardContent>
@@ -93,7 +105,7 @@ class Entry extends React.Component {
                     <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                         <CardContent>
                             {article.map(paragraph => (
-                                <Typography paragraph>
+                                <Typography key={paragraph} paragraph>
                                     {paragraph}
                                 </Typography>
                             ))}
@@ -109,7 +121,6 @@ Entry.propTypes = {
     classes: PropTypes.object.isRequired,
     title: PropTypes.string, // заголовок
     image: PropTypes.string, // путь к изображению
-    imageTitle: PropTypes.string, // подсветка изображения
     summary: PropTypes.string, // краткое описание
     article: PropTypes.array, // полное описание
     date: PropTypes.string // дата
