@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from 'material-ui/Grid';
 import Header from '../Header/Header';
-import Widgets from '../Widgets/Widgets';
+import Widgets from '../../containers/Widgets/Widgets';
 
 export default props => (
     <div style={{margin: "auto"}}>
