@@ -4,4 +4,5 @@ npm install
 unset CI
 npm run build
 export SSHPASS=$PASSWORD
-sshpass -p $PASSWORD scp -r build $USER@$HOST:/var/www/nautilus
+tar -czf package.tgz build
+sshpass -e scp package.tgz $USER@$HOST:/var/www/nautilus
