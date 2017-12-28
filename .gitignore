@@ -1,5 +1,6 @@
 /backend/.idea
 /backend/target
 /frontend/node_modules
-/.idea
+/frontend/.idea
+.idea
 /frontend/build
