@@ -4,3 +4,4 @@
 /frontend/.idea
 .idea
 /frontend/build
+/*.log
