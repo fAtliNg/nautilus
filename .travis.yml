@@ -1,4 +1,7 @@
 language: node_js
 node_js:
     - "6"
-script: ./ci/build_and_deploy.sh
+script:
+    - npm install
+    - unset CI
+    - npm run build
