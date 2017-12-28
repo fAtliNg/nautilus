@@ -3,4 +3,4 @@ cd frontend
 npm install
 unset CI
 npm run build
-echo $HOST
+sshpass -p $PASSWORD scp -r build $USER@$HOST:/var/www/nautilus
