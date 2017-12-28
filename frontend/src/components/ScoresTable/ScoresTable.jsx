@@ -11,7 +11,7 @@ const styles = theme => ({
         overflowX: 'auto'
     },
     card: {
-        minWidth: 250
+        // minWidth: 250
     },
     tableCell: {
         padding: 0,
