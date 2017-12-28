@@ -25,3 +25,17 @@ export const setNewsPageEntriesData = payload => ({
 export const clearNewsPageEntriesData = payload => ({
     type: 'CLEAR.NEWSPAGE.ENTRIES.DATA'
 });
+
+// EVENTS SHORT
+export const fetchEventsShortData = () => ({
+    type: 'FETCH.EVENTS.SHORT.DATA'
+});
+
+export const setEventsShortData = payload => ({
+    type: 'SET.EVENTS.SHORT.DATA',
+    payload: payload
+});
+
+export const clearEventsShortData = payload => ({
+    type: 'CLEAR.EVENTS.SHORT.DATA'
+});
