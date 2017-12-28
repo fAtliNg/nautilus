@@ -6,7 +6,7 @@ class EventFull extends Component {
         return (
             <Card>
                 <CardContent style={{height: 100}}>
-                    EventFull
+                    EventFull. Test commit (Deployment Check)
                 </CardContent>
             </Card>
         );
