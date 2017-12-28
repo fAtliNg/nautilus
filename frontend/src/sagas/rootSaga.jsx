@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {setNewsPageEntriesData, setCommonScoresTableData} from "../actions/actions";
+import {setNewsPageEntriesData, setCommonScoresTableData, setEventsShortData} from "../actions/actions";
 import * as API from '../api/api';
 
 // COMMON
@@ -22,6 +22,16 @@ export function* fetchNewsPageEntriesData() {
     }
 }
 
+// EVENTS SHORT
+export function* fetchEventsShortData() {
+    try {
+        const response = yield call(API.fetchEventsShort);
+        yield put(setEventsShortData(response.data));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 export default function* root() {
     yield [
         // COMMON
@@ -29,5 +39,8 @@ export default function* root() {
 
         // NEWS PAGE
         takeLatest('FETCH.NEWSPAGE.ENTRIES.DATA', fetchNewsPageEntriesData),
+
+        // EVENTS SHORT
+        takeLatest('FETCH.EVENTS.SHORT.DATA', fetchEventsShortData),
     ]
 }

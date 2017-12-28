@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Card, { CardContent } from 'material-ui/Card';
 
 class EventShort extends Component {
-    componentWillMount() {
-    }
     render() {
+        const { data } = this.props;
         return (
             <Card>
                 <CardContent>
-                    EventShort
+                    {data.time} | {data.home} | {data.score} |  {data.away} | {data.date}
                 </CardContent>
             </Card>
         );
     }
 }
 
+EventShort.propTypes = {
+    classes: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired,
+};
 export default EventShort;

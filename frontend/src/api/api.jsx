@@ -135,3 +135,26 @@ export const fetchEntries = () => {
     }
     // return axiosInstance.get('news/getEntries');
 };
+
+//Events Short
+export const fetchEventsShort = () => {
+    return {
+        data: [
+            {
+                date: "24.12",
+                time: "17:05",
+                home: "Наутилус",
+                away: "Ля Мажор",
+                score: "5:1"
+            },
+            {
+                date: "17.12",
+                time: "15:20",
+                home: "Enerdgy",
+                away: "Наутилус",
+                score: "10:6"
+            }
+        ]
+    }
+    // return axiosInstance.get('news/getEventsShort');
+};
