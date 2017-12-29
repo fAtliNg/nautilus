@@ -8,6 +8,7 @@ import {
 
 import App from '../components/App/App';
 import NewsPage from '../containers/NewsPage/NewsPage';
+import ScoresTablePage from '../containers/ScoresTablePage/ScoresTablePage';
 import PlayersPage from '../containers/PlayersPage/PlayersPage';
 import AboutClubPage from '../containers/AboutClubPage/AboutClubPage';
 import PhotoPage from '../containers/PhotoPage/PhotoPage';
@@ -21,6 +22,7 @@ const Routes = () => {
                 <Switch>
                     <Redirect exact from='/' to='/news'/>
                     <Route path="/news" component={NewsPage}/>
+                    <Route path="/table" component={ScoresTablePage}/>
                     <Route path="/players" component={PlayersPage}/>
                     <Route path="/club" component={AboutClubPage}/>
                     <Route path="/photo" component={PhotoPage}/>
