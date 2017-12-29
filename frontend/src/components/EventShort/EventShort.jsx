@@ -8,7 +8,7 @@ class EventShort extends Component {
         return (
             <Card>
                 <CardContent>
-                    {data.time} | {data.home} | {data.score} |  {data.away} | {data.date}
+                    {data.time} - {data.home} - {data.score} - {data.away} - {data.date}
                 </CardContent>
             </Card>
         );
