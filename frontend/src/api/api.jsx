@@ -81,7 +81,7 @@ export const fetchEntries = () => {
     return {
         data: [
             {
-                title: 'Уверенная победа',
+                title: 'Уверенная победа #1',
                 date: '11 дек в 11:28',
                 image: 'https://pp.userapi.com/c621704/v621704057/44d5b/j9ahB-Fcqx8.jpg',
                 summary: 'Уверенная победа со счетом 5-1 в матче против Южтехмонтаж',
@@ -98,8 +98,8 @@ export const fetchEntries = () => {
                 ]
             },
             {
-                title: 'Уверенная победа',
-                date: '11 дек в 11:28',
+                title: 'Уверенная победа #2',
+                date: '11 дек в 11:29',
                 image: 'https://pp.userapi.com/c621704/v621704057/44d5b/j9ahB-Fcqx8.jpg',
                 summary: 'Уверенная победа со счетом 5-1 в матче против Южтехмонтаж',
                 article: [
@@ -115,8 +115,8 @@ export const fetchEntries = () => {
                 ]
             },
             {
-                title: 'Уверенная победа',
-                date: '11 дек в 11:28',
+                title: 'Уверенная победа #3',
+                date: '11 дек в 11:30',
                 image: 'https://pp.userapi.com/c621704/v621704057/44d5b/j9ahB-Fcqx8.jpg',
                 summary: 'Уверенная победа со счетом 5-1 в матче против Южтехмонтаж',
                 article: [

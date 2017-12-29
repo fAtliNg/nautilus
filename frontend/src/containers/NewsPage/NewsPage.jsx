@@ -21,7 +21,7 @@ class NewsPage extends Component {
                     newsPage.entries && Array.isArray(newsPage.entries) &&
                     newsPage.entries.map(entry => (
                         <Entry
-                            key={entry}
+                            key={entry.title}
                             title={entry.title}
                             image={entry.image}
                             summary={entry.summary}
