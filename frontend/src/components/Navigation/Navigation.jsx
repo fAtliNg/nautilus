@@ -8,7 +8,7 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeLink: window.location.pathname
+            activeLink: window.location.pathname === '/' ? '/news' : window.location.pathname
         }
     }
     onChangePage = url => {
