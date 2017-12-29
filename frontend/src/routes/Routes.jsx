@@ -12,6 +12,7 @@ import PlayersPage from '../containers/PlayersPage/PlayersPage';
 import AboutClubPage from '../containers/AboutClubPage/AboutClubPage';
 import PhotoPage from '../containers/PhotoPage/PhotoPage';
 import VideoPage from '../containers/VideoPage/VideoPage';
+import NotFound from '../components/NotFound/NotFound';
 
 const Routes = () => {
     return (
@@ -24,6 +25,7 @@ const Routes = () => {
                     <Route path="/club" component={AboutClubPage}/>
                     <Route path="/photo" component={PhotoPage}/>
                     <Route path="/video" component={VideoPage}/>
+                    <Route path="*" component={NotFound} />
                 </Switch>
             </App>
         </Router>
