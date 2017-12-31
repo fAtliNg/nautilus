@@ -26,6 +26,20 @@ export const clearNewsPageEntriesData = payload => ({
     type: 'CLEAR.NEWSPAGE.ENTRIES.DATA'
 });
 
+// PHOTO PAGE
+export const fetchPhotoPageAlbumsData = () => ({
+    type: 'FETCH.PHOTOPAGE.ALBUMS.DATA'
+});
+
+export const setPhotoPageAlbumsData = payload => ({
+    type: 'SET.PHOTOPAGE.ALBUMS.DATA',
+    payload: payload
+});
+
+export const clearPhotoPageAlbumsData = payload => ({
+    type: 'CLEAR.PHOTOPAGE.ALBUMS.DATA'
+});
+
 // EVENTS SHORT
 export const fetchEventsShortData = () => ({
     type: 'FETCH.EVENTS.SHORT.DATA'

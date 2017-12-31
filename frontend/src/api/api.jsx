@@ -136,6 +136,39 @@ export const fetchEntries = () => {
     // return axiosInstance.get('news/getEntries');
 };
 
+// Photo Page
+export const fetchAlbums = () => {
+    return {
+        data: [
+            {
+                id: 1,
+                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
+                name: 'Наутилус - Западный #1',
+                description: '10 сентября 2017, 2й тур осень-2017'
+            },
+            {
+                id: 2,
+                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
+                name: 'Наутилус - Западный #2',
+                description: '10 сентября 2017, 2й тур осень-2017'
+            },
+            {
+                id: 3,
+                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
+                name: 'Наутилус - Западный #3',
+                description: '10 сентября 2017, 2й тур осень-2017'
+            },
+            {
+                id: 4,
+                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
+                name: 'Наутилус - Западный #4',
+                description: '10 сентября 2017, 2й тур осень-2017'
+            }
+        ]
+    }
+    // return axiosInstance.get('photo/getAlbums');
+};
+
 //Events Short
 export const fetchEventsShort = () => {
     return {
