@@ -169,6 +169,55 @@ export const fetchAlbums = () => {
     // return axiosInstance.get('photo/getAlbums');
 };
 
+export const fetchPhotos = id => {
+    return {
+        data: [
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/451d8/1kgzue-zay4.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451d8/1kgzue-zay4.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/451ec/YRBVvN-CBWc.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451ec/YRBVvN-CBWc.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/451f6/ooPSv0GGAhk.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451f6/ooPSv0GGAhk.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/45200/_32rHf-c9bk.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45200/_32rHf-c9bk.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/4520a/0lXdkplYfZ0.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/4520a/0lXdkplYfZ0.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/45232/2hptBpeUC0U.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45232/2hptBpeUC0U.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/45250/kJfAyjiHgxM.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45250/kJfAyjiHgxM.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/4526e/crD3MNUU87E.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/4526e/crD3MNUU87E.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/45278/q_XsrrE63Rk.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45278/q_XsrrE63Rk.jpg',
+            },
+            {
+                original: 'https://pp.userapi.com/c639427/v639427451/45282/Sm9dIIVQvc4.jpg',
+                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45282/Sm9dIIVQvc4.jpg',
+            }
+
+        ]
+    }
+    // return axiosInstance.get('photo/getAlbums/${id}');
+};
+
 //Events Short
 export const fetchEventsShort = () => {
     return {

@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {setNewsPageEntriesData, setCommonScoresTableData, setEventsShortData, setPhotoPageAlbumsData} from "../actions/actions";
+import {setNewsPageEntriesData, setCommonScoresTableData, setEventsShortData, setPhotoPageAlbumsData, setPhotosData} from "../actions/actions";
 import * as API from '../api/api';
 
 // COMMON
@@ -32,6 +32,15 @@ export function* fetchPhotoPageAlbumsData() {
     }
 }
 
+export function* fetchPhotosData(action) {
+    try {
+        const response = yield call(API.fetchPhotos, action.payload);
+        yield put(setPhotosData(response.data));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 // EVENTS SHORT
 export function* fetchEventsShortData() {
     try {
@@ -52,6 +61,7 @@ export default function* root() {
 
         // PHOTO PAGE
         takeLatest('FETCH.PHOTOPAGE.ALBUMS.DATA', fetchPhotoPageAlbumsData),
+        takeLatest('FETCH.PHOTOS.DATA', fetchPhotosData),
 
         // EVENTS SHORT
         takeLatest('FETCH.EVENTS.SHORT.DATA', fetchEventsShortData),

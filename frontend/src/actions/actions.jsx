@@ -40,6 +40,20 @@ export const clearPhotoPageAlbumsData = payload => ({
     type: 'CLEAR.PHOTOPAGE.ALBUMS.DATA'
 });
 
+export const fetchPhotosData = payload => ({
+    type: 'FETCH.PHOTOS.DATA',
+    payload: payload
+});
+
+export const setPhotosData = payload => ({
+    type: 'SET.PHOTOS.DATA',
+    payload: payload
+});
+
+export const clearPhotosData = payload => ({
+    type: 'CLEAR.PHOTOS.DATA'
+});
+
 // EVENTS SHORT
 export const fetchEventsShortData = () => ({
     type: 'FETCH.EVENTS.SHORT.DATA'
