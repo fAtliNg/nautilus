@@ -11,13 +11,14 @@ class Navigation extends Component {
             activeLink: window.location.pathname === '/' ? '/news' : window.location.pathname
         }
     }
+
     onChangePage = url => {
         this.setState({
             activeLink: url
         });
     };
 
-    renderMenuItem = (url, label) => <Link to={url}>
+    renderMenuItem = (url, label) => <Link to={url} style={{textDecoration: "none"}}>
         <Button
             color={this.state.activeLink === url ? 'contrast' : 'default'}
             onClick={() => {this.onChangePage(url)}}
