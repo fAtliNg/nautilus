@@ -2,6 +2,7 @@
 /backend/target
 /frontend/node_modules
 /frontend/.idea
+/frontend/npm-debug.log.*
 .idea
 /frontend/build
 /*.log
