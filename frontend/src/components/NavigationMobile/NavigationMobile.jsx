@@ -37,6 +37,7 @@ class NavigationMobile extends Component {
     titles = {
         '/news': 'Новости',
         '/table': 'Таблица',
+        '/matches': 'Матчи',
         '/players': 'Игроки',
         '/club': 'О клубе',
         '/photo': 'Фото',
@@ -85,6 +86,9 @@ class NavigationMobile extends Component {
                     </NavItem>
                     <NavItem to="/table" handleClose={this.handleClose}>
                         Таблица
+                    </NavItem>
+                    <NavItem to="/matches" handleClose={this.handleClose}>
+                        Матчи
                     </NavItem>
                     <NavItem to="/players" handleClose={this.handleClose}>
                         Игроки

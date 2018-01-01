@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import CardPlayer from '../../components/CardPlayer/CardPlayer';
 
 // import {fetchHomePageData, clearHomePageData} from '../../actions/actions';
 
@@ -15,7 +16,7 @@ class PlayersPage extends Component {
     render() {
         return (
             <div>
-                Players page
+                <CardPlayer/>
             </div>
         );
     }
