@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ImageGallery from 'react-image-gallery';
 import Grid from 'material-ui/Grid';
 import "react-image-gallery/styles/css/image-gallery.css";
 import GalleryPreview from '../../components/GalleryPreview/GalleryPreview'

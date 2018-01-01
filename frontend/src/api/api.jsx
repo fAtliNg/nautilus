@@ -136,6 +136,64 @@ export const fetchEntries = () => {
     // return axiosInstance.get('news/getEntries');
 };
 
+// Players Page
+export const fetchPlayers = () => {
+    return {
+        data: [
+            {
+                id: 1,
+                fullName: 'Денисенко Сергей',
+                photo: 'https://pp.userapi.com/c636621/v636621655/12328/Y3ztIf9ai5U.jpg',
+                age: 25,
+                number: 11,
+                role: 'Защитник',
+                yellowCards: 0,
+                redCards: 0
+            },
+            {
+                id: 2,
+                fullName: 'Денисенко Сергей',
+                photo: 'https://pp.userapi.com/c636621/v636621655/12328/Y3ztIf9ai5U.jpg',
+                age: 25,
+                number: 11,
+                role: 'Защитник',
+                yellowCards: 0,
+                redCards: 0
+            },
+            {
+                id: 3,
+                fullName: 'Денисенко Сергей',
+                photo: 'https://pp.userapi.com/c636621/v636621655/12328/Y3ztIf9ai5U.jpg',
+                age: 25,
+                number: 11,
+                role: 'Защитник',
+                yellowCards: 0,
+                redCards: 0
+            },
+            {
+                id: 4,
+                fullName: 'Денисенко Сергей',
+                photo: 'https://pp.userapi.com/c636621/v636621655/12328/Y3ztIf9ai5U.jpg',
+                age: 25,
+                number: 11,
+                role: 'Защитник',
+                yellowCards: 0,
+                redCards: 0
+            },
+            {
+                id: 5,
+                fullName: 'Денисенко Сергей',
+                photo: 'https://pp.userapi.com/c636621/v636621655/12328/Y3ztIf9ai5U.jpg',
+                age: 25,
+                number: 11,
+                role: 'Защитник',
+                yellowCards: 0,
+                redCards: 0
+            },
+        ]
+    }
+};
+
 // Photo Page
 export const fetchAlbums = () => {
     return {
