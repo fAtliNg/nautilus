@@ -5,7 +5,8 @@ import {
     setEventsShortData,
     setPhotoPageAlbumsData,
     setPhotosData,
-    setPlayersPageData
+    setPlayersPageData,
+    setVkData
 } from "../actions/actions";
 import * as API from '../api/api';
 
@@ -14,6 +15,15 @@ export function* fetchCommonScoresTable() {
     try {
         const response = yield call(API.fetchCommonScoresTable);
         yield put(setCommonScoresTableData(response.data));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export function* fetchVkData() {
+    try {
+        const response = yield call(API.fetchVkData);
+        yield put(setVkData(response.data));
     } catch (e) {
         console.log(e);
     }
@@ -72,6 +82,7 @@ export default function* root() {
     yield [
         // COMMON
         takeLatest('FETCH.COMMON.SCORESTABLE.DATA', fetchCommonScoresTable),
+        takeLatest('FETCH.VK.DATA', fetchVkData),
 
         // NEWS PAGE
         takeLatest('FETCH.NEWSPAGE.ENTRIES.DATA', fetchNewsPageEntriesData),

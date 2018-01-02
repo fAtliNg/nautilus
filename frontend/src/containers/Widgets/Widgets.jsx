@@ -6,21 +6,29 @@ import EventShort from '../../components/EventShort/EventShort';
 import ScoresTable from '../../components/ScoresTable/ScoresTable';
 import VkGroup from '../../components/VkGroup/VkGroup';
 
-import {fetchCommonScoresTableData, clearCommonScoresTableData, fetchEventsShortData, clearEventsShortData} from '../../actions/actions';
+import {fetchCommonScoresTableData,
+    clearCommonScoresTableData,
+    fetchEventsShortData,
+    clearEventsShortData,
+    fetchVkData,
+    clearVkData
+} from '../../actions/actions';
 
 class Widgets extends Component {
     componentWillMount() {
         this.props.fetchCommonScoresTableData();
         this.props.fetchEventsShortData();
+        this.props.fetchVkData();
     }
 
     componentWillUnmount() {
         this.props.clearCommonScoresTableData();
         this.props.clearEventsShortData();
+        this.props.clearVkData();
     }
 
     render() {
-        const {scoresTable, eventsShort} = this.props;
+        const {scoresTable, eventsShort, vk} = this.props;
         return (
             <Grid container>
                 <Grid item xs={12}>
@@ -46,7 +54,7 @@ class Widgets extends Component {
                     </Grid>
                 }
                 <Grid item xs={12}>
-                    <VkGroup/>
+                    <VkGroup data={vk}/>
                 </Grid>
             </Grid>
         );
@@ -56,12 +64,15 @@ class Widgets extends Component {
 export default connect(
     state => ({
         scoresTable: state.scoresTable,
-        eventsShort: state.eventsShort
+        eventsShort: state.eventsShort,
+        vk: state.vk
     }),
     dispatch => ({
         fetchCommonScoresTableData: () => dispatch(fetchCommonScoresTableData()),
         clearCommonScoresTableData: () => dispatch(clearCommonScoresTableData()),
         fetchEventsShortData: () => dispatch(fetchEventsShortData()),
-        clearEventsShortData: () => dispatch(clearEventsShortData())
+        clearEventsShortData: () => dispatch(clearEventsShortData()),
+        fetchVkData: () => dispatch(fetchVkData()),
+        clearVkData: () => dispatch(clearVkData())
     })
 )(Widgets);

@@ -12,6 +12,19 @@ export const clearCommonScoresTableData = payload => ({
     type: 'CLEAR.COMMON.SCORESTABLE.DATA'
 });
 
+export const fetchVkData = () => ({
+    type: 'FETCH.VK.DATA'
+});
+
+export const setVkData = payload => ({
+    type: 'SET.VK.DATA',
+    payload: payload
+});
+
+export const clearVkData = payload => ({
+    type: 'CLEAR.VK.DATA'
+});
+
 // NEWS PAGE
 export const fetchNewsPageEntriesData = () => ({
     type: 'FETCH.NEWSPAGE.ENTRIES.DATA'
