@@ -359,8 +359,8 @@ export const fetchVideos = id => {
     // return axiosInstance.get('photo/getAlbums/${id}');
 };
 
-//Events Short
-export const fetchEventsShort = () => {
+//Events
+export const fetchEvents = () => {
     return {
         data: [
             {
@@ -376,8 +376,15 @@ export const fetchEventsShort = () => {
                 home: "Enerdgy",
                 away: "Наутилус",
                 score: "10:6"
+            },
+            {
+                date: "10.12",
+                time: "16:50",
+                home: "Наутилус",
+                away: "Южтехмонтаж",
+                score: "3:1"
             }
         ]
     }
-    // return axiosInstance.get('news/getEventsShort');
+    // return axiosInstance.get('news/getEvents');
 };

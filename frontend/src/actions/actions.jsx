@@ -110,15 +110,15 @@ export const clearVideosData = payload => ({
 });
 
 // EVENTS SHORT
-export const fetchEventsShortData = () => ({
-    type: 'FETCH.EVENTS.SHORT.DATA'
+export const fetchEventsData = () => ({
+    type: 'FETCH.EVENTS.DATA'
 });
 
-export const setEventsShortData = payload => ({
-    type: 'SET.EVENTS.SHORT.DATA',
+export const setEventsData = payload => ({
+    type: 'SET.EVENTS.DATA',
     payload: payload
 });
 
-export const clearEventsShortData = payload => ({
-    type: 'CLEAR.EVENTS.SHORT.DATA'
+export const clearEventsData = payload => ({
+    type: 'CLEAR.EVENTS.DATA'
 });

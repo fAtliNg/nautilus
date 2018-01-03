@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 import EventFull from '../../components/EventFull/EventFull';
 import EventShort from '../../components/EventShort/EventShort';
 
-import {fetchEventsShortData, clearEventsShortData} from '../../actions/actions';
+import {fetchEventsData, clearEventsData} from '../../actions/actions';
 
 class MatchesPage extends Component {
     componentWillMount() {
-        this.props.fetchEventsShortData();
+        this.props.fetchEventsData();
     }
 
     componentWillUnmount() {
-        this.props.clearEventsShortData();
+        this.props.clearEventsData();
     }
 
     render() {
@@ -30,7 +30,7 @@ export default connect(
         eventsShort: state.eventsShort
     }),
     dispatch => ({
-        fetchEventsShortData: () => dispatch(fetchEventsShortData()),
-        clearEventsShortData: () => dispatch(clearEventsShortData()),
+        fetchEventsData: () => dispatch(fetchEventsData()),
+        clearEventsData: () => dispatch(clearEventsData()),
     })
 )(MatchesPage);

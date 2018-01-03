@@ -2,7 +2,7 @@ import {call, put, takeLatest} from 'redux-saga/effects';
 import {
     setNewsPageEntriesData,
     setCommonScoresTableData,
-    setEventsShortData,
+    setEventsData,
     setPhotoPageAlbumsData,
     setPhotosData,
     setVideoPageAlbumsData,
@@ -90,10 +90,10 @@ export function* fetchVideosData(action) {
 }
 
 // EVENTS SHORT
-export function* fetchEventsShortData() {
+export function* fetchEventsData() {
     try {
-        const response = yield call(API.fetchEventsShort);
-        yield put(setEventsShortData(response.data));
+        const response = yield call(API.fetchEvents);
+        yield put(setEventsData(response.data));
     } catch (e) {
         console.log(e);
     }
@@ -120,6 +120,6 @@ export default function* root() {
         takeLatest('FETCH.VIDEOS.DATA', fetchVideosData),
 
         // EVENTS SHORT
-        takeLatest('FETCH.EVENTS.SHORT.DATA', fetchEventsShortData),
+        takeLatest('FETCH.EVENTS.DATA', fetchEventsData),
     ]
 }

@@ -8,8 +8,8 @@ import VkGroup from '../../components/VkGroup/VkGroup';
 
 import {fetchCommonScoresTableData,
     clearCommonScoresTableData,
-    fetchEventsShortData,
-    clearEventsShortData,
+    fetchEventsData,
+    clearEventsData,
     fetchVkData,
     clearVkData
 } from '../../actions/actions';
@@ -17,34 +17,34 @@ import {fetchCommonScoresTableData,
 class Widgets extends Component {
     componentWillMount() {
         this.props.fetchCommonScoresTableData();
-        this.props.fetchEventsShortData();
+        this.props.fetchEventsData();
         this.props.fetchVkData();
     }
 
     componentWillUnmount() {
         this.props.clearCommonScoresTableData();
-        this.props.clearEventsShortData();
+        this.props.clearEventsData();
         this.props.clearVkData();
     }
 
     render() {
-        const {scoresTable, eventsShort, vk} = this.props;
+        const {scoresTable, events, vk} = this.props;
         return (
             <Grid container>
                 <Grid item xs={12}>
                     <EventFull/>
                 </Grid>
-                {eventsShort.data.length > 0 &&
+                {events.data.length > 1 &&
                     <Grid item xs={12}>
                         <EventShort
-                            data={eventsShort.data[0]}
+                            data={events.data[1]}
                         />
                     </Grid>
                 }
-                {eventsShort.data.length > 1 &&
+                {events.data.length > 2 &&
                     <Grid item xs={12}>
                         <EventShort
-                            data={eventsShort.data[1]}
+                            data={events.data[2]}
                         />
                     </Grid>
                 }
@@ -64,14 +64,14 @@ class Widgets extends Component {
 export default connect(
     state => ({
         scoresTable: state.scoresTable,
-        eventsShort: state.eventsShort,
+        events: state.events,
         vk: state.vk
     }),
     dispatch => ({
         fetchCommonScoresTableData: () => dispatch(fetchCommonScoresTableData()),
         clearCommonScoresTableData: () => dispatch(clearCommonScoresTableData()),
-        fetchEventsShortData: () => dispatch(fetchEventsShortData()),
-        clearEventsShortData: () => dispatch(clearEventsShortData()),
+        fetchEventsData: () => dispatch(fetchEventsData()),
+        clearEventsData: () => dispatch(clearEventsData()),
         fetchVkData: () => dispatch(fetchVkData()),
         clearVkData: () => dispatch(clearVkData())
     })
