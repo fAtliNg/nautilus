@@ -31,6 +31,7 @@ class Widgets extends Component {
         const {scoresTable, events, vk} = this.props;
         return (
             <Grid container>
+                {events.data.length > 1 &&
                 <Grid item xs={12}>
                     <EventFull
                         /*data={{
@@ -43,6 +44,7 @@ class Widgets extends Component {
                         data={events.data[0]}
                     />
                 </Grid>
+                }
                 {events.data.length > 1 &&
                     <Grid item xs={12}>
                         <EventShort
