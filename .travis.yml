@@ -1,13 +1,11 @@
-language: node_js
+language: 
+    - node_js
+    - java
 node_js:
     - "6"
 addons:
     apt:
         packages:
             - sshpass
-script: ./ci/build_and_deploy.sh
-language: java
-addons:
-    apt:
-        packages:
             - oracle-java8-installer
+script: ./ci/build_and_deploy.sh
