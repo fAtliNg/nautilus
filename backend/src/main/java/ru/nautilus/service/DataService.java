@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 import ru.nautilus.model.*;
 
-import java.util.List;
 
 @Component
 public class DataService {

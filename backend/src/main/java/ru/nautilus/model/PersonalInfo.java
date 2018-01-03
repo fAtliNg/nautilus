@@ -12,5 +12,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PersonalInfo {
     private String name;
     private int number;
-    private String position;
+    //private String position;
 }
