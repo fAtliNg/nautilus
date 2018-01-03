@@ -9,9 +9,11 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {ApplicationConfig.class};
+        return new Class[] {
+                ApplicationConfig.class,
+                MongoConfig.class
+        };
     }
 
     protected Class<?>[] getServletConfigClasses() {
