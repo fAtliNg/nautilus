@@ -245,7 +245,7 @@ export const fetchPlayers = () => {
 };
 
 // Photo Page
-export const fetchAlbums = () => {
+export const fetchPhotoAlbums = () => {
     return {
         data: [
             {
@@ -321,6 +321,39 @@ export const fetchPhotos = id => {
                 thumbnail: 'https://pp.userapi.com/c639427/v639427451/45282/Sm9dIIVQvc4.jpg',
             }
 
+        ]
+    }
+    // return axiosInstance.get('photo/getAlbums/${id}');
+};
+
+// Video Page
+export const fetchVideoAlbums = () => {
+    return {
+        data: [
+            {
+                id: 1,
+                previewImage: 'https://pp.userapi.com/c841221/u297685415/video/l_ebfc1f28.jpg',
+                name: 'Обзоры матчей',
+                description: '10 сентября 2017, 2й тур осень-2017'
+            }
+        ]
+    }
+    // return axiosInstance.get('photo/getAlbums');
+};
+
+export const fetchVideos = id => {
+    return {
+        data: [
+            {
+                original: 'https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4v.jpg',
+                thumbnail: 'https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4v.jpg',
+                embedUrl: 'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0'
+            },
+            {
+                original: 'https://pp.userapi.com/c624724/v624724313/2d517/21reNlVJZDA.jpg',
+                thumbnail: 'https://pp.userapi.com/c624724/v624724313/2d517/21reNlVJZDA.jpg',
+                embedUrl: 'https://cs1-50v4.vkuservideo.net/p21/30bf0887c51b.720.mp4?extra=04AN-x6zE5RJ3WCbFrh_xe3rLOnZJDBx_BWVxGqLh8XEKvKB2RpAX3bbOgJwPdZ95P1H3rYTgaUBrA4qFR9EPvr7EKtUn7y-U1QOuXsUMTAKYCwBHFV-cKhEfAVlbXNHV87tZcq7_XeuTqU'
+            }
         ]
     }
     // return axiosInstance.get('photo/getAlbums/${id}');

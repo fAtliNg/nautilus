@@ -20,8 +20,8 @@ class PhotoPage extends Component {
         return (
             <Grid container>
                 {albums.map(album =>
-                    <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
-                        <GalleryPreview key={album.id} data={album}/>
+                    <Grid key={album.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
+                        <GalleryPreview data={album} path="photo"/>
                     </Grid>
                 )}
             </Grid>

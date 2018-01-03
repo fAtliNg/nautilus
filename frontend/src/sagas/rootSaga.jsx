@@ -5,6 +5,8 @@ import {
     setEventsShortData,
     setPhotoPageAlbumsData,
     setPhotosData,
+    setVideoPageAlbumsData,
+    setVideosData,
     setPlayersPageData,
     setVkData
 } from "../actions/actions";
@@ -52,7 +54,7 @@ export function* fetchPlayersPageData() {
 // PHOTO PAGE
 export function* fetchPhotoPageAlbumsData() {
     try {
-        const response = yield call(API.fetchAlbums);
+        const response = yield call(API.fetchPhotoAlbums);
         yield put(setPhotoPageAlbumsData(response.data));
     } catch (e) {
         console.log(e);
@@ -63,6 +65,25 @@ export function* fetchPhotosData(action) {
     try {
         const response = yield call(API.fetchPhotos, action.payload);
         yield put(setPhotosData(response.data));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// VIDEO PAGE
+export function* fetchVideoPageAlbumsData() {
+    try {
+        const response = yield call(API.fetchVideoAlbums);
+        yield put(setVideoPageAlbumsData(response.data));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export function* fetchVideosData(action) {
+    try {
+        const response = yield call(API.fetchVideos, action.payload);
+        yield put(setVideosData(response.data));
     } catch (e) {
         console.log(e);
     }
@@ -93,6 +114,10 @@ export default function* root() {
         // PHOTO PAGE
         takeLatest('FETCH.PHOTOPAGE.ALBUMS.DATA', fetchPhotoPageAlbumsData),
         takeLatest('FETCH.PHOTOS.DATA', fetchPhotosData),
+
+        // VIDEO PAGE
+        takeLatest('FETCH.VIDEOPAGE.ALBUMS.DATA', fetchVideoPageAlbumsData),
+        takeLatest('FETCH.VIDEOS.DATA', fetchVideosData),
 
         // EVENTS SHORT
         takeLatest('FETCH.EVENTS.SHORT.DATA', fetchEventsShortData),

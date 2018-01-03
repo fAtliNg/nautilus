@@ -13,7 +13,8 @@ import MatchesPage from '../containers/MatchesPage/MatchesPage';
 import PlayersPage from '../containers/PlayersPage/PlayersPage';
 import AboutClubPage from '../containers/AboutClubPage/AboutClubPage';
 import PhotoPage from '../containers/PhotoPage/PhotoPage';
-import GalleryPage from '../containers/GalleryPage/GalleryPage';
+import PhotoGalleryPage from '../containers/PhotoGalleryPage/PhotoGalleryPage';
+import VideoGalleryPage from '../containers/VideoGalleryPage/VideoGalleryPage';
 import VideoPage from '../containers/VideoPage/VideoPage';
 import NotFound from '../components/NotFound/NotFound';
 
@@ -29,8 +30,9 @@ const Routes = () => {
                     <Route path="/players" component={PlayersPage}/>
                     <Route path="/club" component={AboutClubPage}/>
                     <Route exact path="/photo" component={PhotoPage}/>
-                    <Route path="/photo/:id" component={GalleryPage}/>
-                    <Route path="/video" component={VideoPage}/>
+                    <Route path="/photo/:id" component={PhotoGalleryPage}/>
+                    <Route exact path="/video" component={VideoPage}/>
+                    <Route path="/video/:id" component={VideoGalleryPage}/>
                     <Route path="*" component={NotFound} />
                 </Switch>
             </App>

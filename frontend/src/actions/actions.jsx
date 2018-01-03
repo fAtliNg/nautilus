@@ -81,6 +81,34 @@ export const clearPhotosData = payload => ({
     type: 'CLEAR.PHOTOS.DATA'
 });
 
+// VIDEO PAGE
+export const fetchVideoPageAlbumsData = () => ({
+    type: 'FETCH.VIDEOPAGE.ALBUMS.DATA'
+});
+
+export const setVideoPageAlbumsData = payload => ({
+    type: 'SET.VIDEOPAGE.ALBUMS.DATA',
+    payload: payload
+});
+
+export const clearVideoPageAlbumsData = payload => ({
+    type: 'CLEAR.VIDEOPAGE.ALBUMS.DATA'
+});
+
+export const fetchVideosData = payload => ({
+    type: 'FETCH.VIDEOS.DATA',
+    payload: payload
+});
+
+export const setVideosData = payload => ({
+    type: 'SET.VIDEOS.DATA',
+    payload: payload
+});
+
+export const clearVideosData = payload => ({
+    type: 'CLEAR.VIDEOS.DATA'
+});
+
 // EVENTS SHORT
 export const fetchEventsShortData = () => ({
     type: 'FETCH.EVENTS.SHORT.DATA'

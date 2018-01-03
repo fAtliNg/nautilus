@@ -21,33 +21,33 @@ class CardPlayer extends Component {
             <Card className={classes.card}>
                 <Grid container justify="center">
                     <Grid item xs={5}>
-                    <CardMedia
-                        className={classes.cover}
-                        image={data.photo}
-                        title={data.fullName}
-                    />
+                        <CardMedia
+                            className={classes.cover}
+                            image={data.photo}
+                            title={data.fullName}
+                        />
                     </Grid>
                     <Grid item xs={7}>
-                    <CardContent>
-                        <Typography type="headline">
-                            {data.fullName}
-                        </Typography>
-                        <Typography type="subheading" color="secondary">
-                            Возраст: {data.age}
-                        </Typography>
-                        <Typography type="subheading" color="secondary">
-                            Номер: {data.number}
-                        </Typography>
-                        <Typography type="subheading" color="secondary">
-                            Игровая позиция: {data.role}
-                        </Typography>
-                        <Typography type="subheading" color="secondary">
-                            Желтые карточки: {data.yellowCards}
-                        </Typography>
-                        <Typography type="subheading" color="secondary">
-                            Красные карточки: {data.redCards}
-                        </Typography>
-                    </CardContent>
+                        <CardContent>
+                            <Typography type="headline">
+                                {data.fullName}
+                            </Typography>
+                            <Typography type="subheading" color="secondary">
+                                Возраст: {data.age}
+                            </Typography>
+                            <Typography type="subheading" color="secondary">
+                                Номер: {data.number}
+                            </Typography>
+                            <Typography type="subheading" color="secondary">
+                                Игровая позиция: {data.role}
+                            </Typography>
+                            <Typography type="subheading" color="secondary">
+                                Желтые карточки: {data.yellowCards}
+                            </Typography>
+                            <Typography type="subheading" color="secondary">
+                                Красные карточки: {data.redCards}
+                            </Typography>
+                        </CardContent>
                     </Grid>
                 </Grid>
             </Card>
