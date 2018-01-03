@@ -31,19 +31,12 @@ class Widgets extends Component {
         const {scoresTable, events, vk} = this.props;
         return (
             <Grid container>
-                {events.data.length > 1 &&
-                <Grid item xs={12}>
-                    <EventFull
-                        /*data={{
-                            time:'01-01',
-                            home:'Nautilus',
-                            score:'5-0',
-                            away:'Warriors',
-                            date:'05-05'
-                        }}*/
-                        data={events.data[0]}
-                    />
-                </Grid>
+                {events.data.length > 0 &&
+                    <Grid item xs={12}>
+                        <EventFull
+                            data={events.data[0]}
+                        />
+                    </Grid>
                 }
                 {events.data.length > 1 &&
                     <Grid item xs={12}>
