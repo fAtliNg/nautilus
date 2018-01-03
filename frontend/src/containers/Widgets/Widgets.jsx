@@ -33,13 +33,14 @@ class Widgets extends Component {
             <Grid container>
                 <Grid item xs={12}>
                     <EventFull
-                        data={[{
+                        /*data={{
                             time:'01-01',
                             home:'Nautilus',
                             score:'5-0',
                             away:'Warriors',
                             date:'05-05'
-                        }]}
+                        }}*/
+                        data={events.data[0]}
                     />
                 </Grid>
                 {events.data.length > 1 &&

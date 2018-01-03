@@ -17,7 +17,7 @@ class EventFull extends Component {
 
 EventFull.propTypes = {
     classes: PropTypes.object.isRequired,
-    data: PropTypes.array.isRequired,
+    data: PropTypes.object.isRequired,
 };
 
 export default EventFull;
