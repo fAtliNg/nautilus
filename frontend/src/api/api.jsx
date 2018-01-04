@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-var HOST = 'http://localhost:81';
+var HOST = 'http://mfc-nautilus.ru:8080/nautilus';
 
 var axiosInstance = axios.create({
-    baseURL: `${HOST}/api`,
+    baseURL: `${HOST}`,
     headers: {}
 });
 
@@ -361,30 +361,5 @@ export const fetchVideos = id => {
 
 //Events
 export const fetchEvents = () => {
-    return {
-        data: [
-            {
-                date: "24.12",
-                time: "17:05",
-                home: "Наутилус",
-                away: "Ля Мажор",
-                score: "5:1"
-            },
-            {
-                date: "17.12",
-                time: "15:20",
-                home: "Enerdgy",
-                away: "Наутилус",
-                score: "10:6"
-            },
-            {
-                date: "10.12",
-                time: "16:50",
-                home: "Наутилус",
-                away: "Южтехмонтаж",
-                score: "3:1"
-            }
-        ]
-    }
-    // return axiosInstance.get('news/getEvents');
+    return axiosInstance.get('events/getall');
 };
