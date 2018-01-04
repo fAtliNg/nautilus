@@ -121,7 +121,7 @@ export default function* root() {
         takeLatest('FETCH.VIDEOPAGE.ALBUMS.DATA', fetchVideoPageAlbumsData),
         takeLatest('FETCH.VIDEOS.DATA', fetchVideosData),
 
-        // EVENTS SHORT
+        // EVENTS
         takeLatest('FETCH.EVENTS.DATA', fetchEventsData),
     ]
 }
