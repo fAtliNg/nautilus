@@ -2,6 +2,10 @@
 cd frontend
 npm install
 unset CI
+echo "ls"
+ls
+echo "pwd"
+pwd
 rm src/config/config.jsx
 echo "ls src/config"
 ls src/config
