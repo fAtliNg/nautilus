@@ -3,8 +3,6 @@ cd frontend
 unset CI
 rm src/config/config.jsx
 mv src/config/prod.jsx src/config/config.jsx
-echo "ls src/config/"
-ls src/config/
 npm install
 npm run build
 cd ../backend
