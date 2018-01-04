@@ -1,6 +1,9 @@
 package ru.nautilus.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.nautilus.filter.CORSFilter;
+
+import javax.servlet.Filter;
 
 /**
  * @author Denisenko Denis
@@ -22,5 +25,10 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new CORSFilter()};
     }
 }
