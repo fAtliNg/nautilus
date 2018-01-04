@@ -17,4 +17,7 @@ public class DataService {
     public List<EventInfo> getEventsInfo(){
         return mongoTemplate.findAll(EventInfo.class);
     }
+    public List<NewsInfo> getNewsInfo(){
+        return mongoTemplate.findAll(NewsInfo.class);
+    }
 }
