@@ -20,4 +20,7 @@ public class DataService {
     public List<NewsInfo> getNewsInfo(){
         return mongoTemplate.findAll(NewsInfo.class);
     }
+    public List<ScoresTable> getScoresTableInfo(){
+        return mongoTemplate.findAll(ScoresTable.class);
+    }
 }

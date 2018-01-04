@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.nautilus.controller.EventsDataController;
 import ru.nautilus.controller.NewsDataController;
+import ru.nautilus.controller.ScoresTableDataController;
 import ru.nautilus.service.DataService;
 
 /**
@@ -33,4 +34,7 @@ public class ApplicationConfig {
     public NewsDataController getNewsDataController() {
         return new NewsDataController();
     }
+
+    @Bean
+    public ScoresTableDataController getScoresTableDataController() { return new ScoresTableDataController(); }
 }

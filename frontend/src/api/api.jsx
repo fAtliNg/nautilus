@@ -8,71 +8,7 @@ var axiosInstance = axios.create({
 
 // Common
 export const fetchCommonScoresTable = () => {
-    return {
-        data: [
-            {
-                name: 'Армата',
-                games: 5,
-                scores: 15
-            },
-            {
-                name: 'СТЕЛА',
-                games: 5,
-                scores: 12
-            },
-            {
-                name: 'Energy',
-                games: 5,
-                scores: 12
-            },
-            {
-                name: 'Виктория',
-                games: 5,
-                scores: 12
-            },
-            {
-                name: 'Орион',
-                games: 6,
-                scores: 10
-            },
-            {
-                name: 'Наутилус',
-                games: 5,
-                scores: 9
-            },
-            {
-                name: 'Атлант 5х5',
-                games: 4,
-                scores: 7
-            },
-            {
-                name: 'Лидер',
-                games: 6,
-                scores: 4
-            },
-            {
-                name: 'Южтехмонтаж',
-                games: 5,
-                scores: 2
-            },
-            {
-                name: 'ЛФ КБР',
-                games: 5,
-                scores: 1
-            },
-            {
-                name: 'Ля-Мажор',
-                games: 2,
-                scores: 0
-            },
-            {
-                name: 'Армейцы дона',
-                games: 5,
-                scores: 0
-            }
-        ]
-    }
-    // return axiosInstance.get('common/getScoresTable');
+    return axiosInstance.get('scorestable');
 };
 
 export const fetchVkData = () => {
