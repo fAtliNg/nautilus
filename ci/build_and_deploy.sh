@@ -1,17 +1,19 @@
 #!/bin/bash
 cd frontend
-npm install
 unset CI
 echo "ls"
 ls
 echo "pwd"
 pwd
 rm src/config/config.jsx
+echo "ls src"
+ls src
 echo "ls src/config"
 ls src/config
 sshpass -p "$PASSWORD" rsync --progress -avz -e ssh $USER@$HOST:/etc/nautilus/config.jsx src/config/
 echo "cat src/config/config.jsx"
 cat src/config/config.jsx
+npm install
 npm run build
 cd ../backend
 mvn install
