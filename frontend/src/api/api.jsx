@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-var HOST = 'http://mfc-nautilus.ru:8080/nautilus';
+import config from '../config/config';
 
 var axiosInstance = axios.create({
-    baseURL: `${HOST}`,
+    baseURL: `${config.HOST}/nautilus`,
     headers: {}
 });
 
