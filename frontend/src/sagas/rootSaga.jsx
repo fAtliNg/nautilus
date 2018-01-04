@@ -92,7 +92,9 @@ export function* fetchVideosData(action) {
 // EVENTS SHORT
 export function* fetchEventsData() {
     try {
+        console.log('fetchEventsData');
         const response = yield call(API.fetchEvents);
+        console.log('response', response.data);
         yield put(setEventsData(response.data));
     } catch (e) {
         console.log(e);
