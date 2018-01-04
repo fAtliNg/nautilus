@@ -119,6 +119,18 @@ export const setEventsData = payload => ({
     payload: payload
 });
 
+
 export const clearEventsData = payload => ({
-    type: 'CLEAR.EVENTS.DATA'
+    type: '' +
+    'CLEAR.EVENTS.DATA'
+});
+
+// EVENT FULL
+export const fetchEventFull = () => ({
+    type: 'FETCH.EVENT.FULL'
+});
+
+export const setEventFull = payload => ({
+    type: 'SET.EVENT.FULL',
+    payload: payload
 });

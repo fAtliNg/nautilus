@@ -3,6 +3,7 @@ import {
     setNewsPageEntriesData,
     setCommonScoresTableData,
     setEventsData,
+    setEventFull,
     setPhotoPageAlbumsData,
     setPhotosData,
     setVideoPageAlbumsData,
@@ -101,6 +102,18 @@ export function* fetchEventsData() {
     }
 }
 
+// EVENT FULL
+export function* fetchEventFull() {
+    try {
+        const response = yield call(API.fetchEvents);
+        yield put(setEventFull(response.data.reduce((l,e) => e.date > l.date ? e : l)));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
+
 export default function* root() {
     yield [
         // COMMON
@@ -123,5 +136,8 @@ export default function* root() {
 
         // EVENTS
         takeLatest('FETCH.EVENTS.DATA', fetchEventsData),
+
+        // EVENT FULL
+        takeLatest('FETCH.EVENT.FULL', fetchEventFull),
     ]
 }
