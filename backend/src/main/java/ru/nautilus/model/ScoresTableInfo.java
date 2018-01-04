@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection="scorestable")
-public class ScoresTable {
+public class ScoresTableInfo {
     String name;
     int games;
     int scores;

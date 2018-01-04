@@ -3,7 +3,7 @@ package ru.nautilus.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.nautilus.model.ScoresTable;
+import ru.nautilus.model.ScoresTableInfo;
 import ru.nautilus.service.DataService;
 
 import java.util.List;
@@ -17,5 +17,5 @@ public class ScoresTableDataController {
     protected DataService Service;
 
     @RequestMapping(method = GET)
-    public List<ScoresTable> getScoresTable() { return Service.getScoresTableInfo(); }
+    public List<ScoresTableInfo> getScoresTable() { return Service.getScoresTableInfo(); }
 }
