@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import ru.nautilus.controller.DataController;
+import ru.nautilus.controller.EventsDataController;
 import ru.nautilus.service.DataService;
 
 /**
@@ -17,14 +17,14 @@ import ru.nautilus.service.DataService;
 @EnableWebMvc
 public class ApplicationConfig {
 
-    @Bean(name = "dataServise")
+    @Bean
     @Scope(value = "prototype")
     public DataService getDataService() {
        return new DataService();
     }
 
-    @Bean(name = "dataController")
-    public DataController getDataController() {
-        return new DataController();
+    @Bean
+    public EventsDataController getEventsDataController() {
+        return new EventsDataController();
     }
 }
