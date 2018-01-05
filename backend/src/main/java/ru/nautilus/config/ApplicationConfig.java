@@ -4,10 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import ru.nautilus.controller.EventsDataController;
-import ru.nautilus.controller.NewsDataController;
-import ru.nautilus.controller.ScoresTableDataController;
-import ru.nautilus.controller.PlayersDataController;
+import ru.nautilus.controller.*;
 import ru.nautilus.service.DataService;
 
 /**
@@ -41,4 +38,10 @@ public class ApplicationConfig {
 
     @Bean
     public PlayersDataController getPlayersDataController() { return new PlayersDataController(); }
+
+    @Bean
+    public PhotoGalleryPreviewDataController getPhotoGalleryPreviewDataController() { return new PhotoGalleryPreviewDataController(); }
+
+    @Bean
+    public VideoGalleryPreviewDataController getVideoGalleryPreviewDataController() { return new VideoGalleryPreviewDataController(); }
 }

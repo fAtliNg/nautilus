@@ -73,35 +73,7 @@ export const fetchPlayers = () => {
 
 // Photo Page
 export const fetchPhotoAlbums = () => {
-    return {
-        data: [
-            {
-                id: 1,
-                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
-                name: 'Наутилус - Западный #1',
-                description: '10 сентября 2017, 2й тур осень-2017'
-            },
-            {
-                id: 2,
-                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
-                name: 'Наутилус - Западный #2',
-                description: '10 сентября 2017, 2й тур осень-2017'
-            },
-            {
-                id: 3,
-                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
-                name: 'Наутилус - Западный #3',
-                description: '10 сентября 2017, 2й тур осень-2017'
-            },
-            {
-                id: 4,
-                previewImage: 'https://pp.userapi.com/c639427/v639427451/451e2/qGdWqarZQdc.jpg',
-                name: 'Наутилус - Западный #4',
-                description: '10 сентября 2017, 2й тур осень-2017'
-            }
-        ]
-    }
-    // return axiosInstance.get('photo/getAlbums');
+    return axiosInstance.get('gallery/photo');
 };
 
 export const fetchPhotos = id => {
@@ -155,17 +127,7 @@ export const fetchPhotos = id => {
 
 // Video Page
 export const fetchVideoAlbums = () => {
-    return {
-        data: [
-            {
-                id: 1,
-                previewImage: 'https://pp.userapi.com/c841221/u297685415/video/l_ebfc1f28.jpg',
-                name: 'Обзоры матчей',
-                description: '10 сентября 2017, 2й тур осень-2017'
-            }
-        ]
-    }
-    // return axiosInstance.get('photo/getAlbums');
+    return axiosInstance.get('gallery/video');
 };
 
 export const fetchVideos = id => {

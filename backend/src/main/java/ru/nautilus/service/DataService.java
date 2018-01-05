@@ -26,4 +26,6 @@ public class DataService {
     public List<PlayersInfo> getPlayersInfo(){
         return mongoTemplate.findAll(PlayersInfo.class);
     }
+    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreviewInfo(){ return mongoTemplate.findAll(PhotoGalleryPreviewInfo.class); }
+    public List<VideoGalleryPreviewInfo> getVideoGalleryPreviewInfo(){ return mongoTemplate.findAll(VideoGalleryPreviewInfo.class); }
 }
