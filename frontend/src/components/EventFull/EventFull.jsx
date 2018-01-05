@@ -44,24 +44,37 @@ class EventFull extends Component {
                     </Grid>
 
                     <Grid container justify={'center'} className={classes.grid}>
+                        <Grid item>
                         <Avatar alt="Наутилус"
                                 src="https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"
                                 className={classes.avatar}
-                        />
+                        /></Grid>
+                            <Grid item>
                         <Typography type={"display2"} className={classes.score}>
                           {data.score}
-                        </Typography>
+                        </Typography></Grid>
+                                <Grid item>
                         <Avatar alt="Соперник"
                                 src="https://pp.userapi.com/c824410/v824410000/7048c/EUN7T5ZJHAA.jpg"
                                 className={classes.avatar}
-                        />
+                        /></Grid>
                     </Grid>
                         <Grid container justify={'center'} className={classes.grid}>
-                            <Typography type={"title"}>
-                                {data.home}     -     {data.away}
-                            </Typography>
-
-
+                            <Grid item>
+                                <Typography type={"title"}>
+                                    {data.home}
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography type={"title"}>
+                                   -
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography type={"title"}>
+                                    {data.away}
+                                </Typography>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </CardContent>
