@@ -1,5 +1,6 @@
 const initialState = {
-    data: [],
+    shortEvents: [],
+    fullEvent: {},
     state: 'initial'
 };
 
@@ -15,12 +16,19 @@ export default (state = initialState, action) => {
         case 'SET.EVENTS.DATA':
             newState = {
                 ...state,
-                data: action.payload,
+                shortEvents: action.payload,
                 state: 'is_established'
             };
             break;
         case 'CLEAR.EVENTS.DATA':
             newState = initialState;
+            break;
+        case 'SET.EVENT.FULL':
+            newState = {
+                ...state,
+                fullEvent: action.payload,
+                state: 'is_established'
+            };
             break;
         default:
         // no default
