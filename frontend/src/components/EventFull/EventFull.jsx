@@ -3,10 +3,27 @@ import PropTypes from 'prop-types';
 import Card, { CardContent } from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
+import Avatar from 'material-ui/Avatar';
+import {withStyles} from "material-ui/styles/index";
+
+const styles = theme => ({
+    avatar: {
+        width:60,
+        height:60,
+        paddingRight:10,
+        paddingLeft:10,
+    },
+    grid: {
+        padding:10,
+    },
+    score: {
+    }
+
+});
 
 class EventFull extends Component {
     render() {
-        const { data } = this.props;
+        const { classes, data } = this.props;
         return (
             <Card>
                 <CardContent>
@@ -20,17 +37,32 @@ class EventFull extends Component {
                     </Typography>
                     </Grid>
 
-                    <Grid container justify={'center'}>
+                    <Grid container justify={'center'} className={classes.grid}>
                         <Typography type={"subheading"}>
-                            <br/>РГУПС, 5-я лига
+                            РГУПС, 5-я лига
                         </Typography>
                     </Grid>
-                    <Grid container justify={'center'}>
-                        <Typography type={"title"}>
-                            <br/>
-                        {data.home}  {data.score}  {data.away}
+
+                    <Grid container justify={'center'} className={classes.grid}>
+                        <Avatar alt="Наутилус"
+                                src="https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"
+                                className={classes.avatar}
+                        />
+                        <Typography type={"display2"} className={classes.score}>
+                          {data.score}
                         </Typography>
+                        <Avatar alt="Соперник"
+                                src="https://pp.userapi.com/c824410/v824410000/7048c/EUN7T5ZJHAA.jpg"
+                                className={classes.avatar}
+                        />
                     </Grid>
+                        <Grid container justify={'center'} className={classes.grid}>
+                            <Typography type={"title"}>
+                                {data.home}     -     {data.away}
+                            </Typography>
+
+
+                        </Grid>
                     </Grid>
                 </CardContent>
             </Card>
@@ -43,4 +75,4 @@ EventFull.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
-export default EventFull;
+export default withStyles(styles)(EventFull);
