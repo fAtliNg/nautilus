@@ -8,8 +8,9 @@ import VkGroup from '../../components/VkGroup/VkGroup';
 
 import {fetchCommonScoresTableData,
     clearCommonScoresTableData,
-    fetchEventsData,
-    fetchEventFull,
+    // fetchEventsData,
+    // fetchEventFull,
+    fetchEvents,
     clearEventsData,
     fetchVkData,
     clearVkData
@@ -18,8 +19,9 @@ import {fetchCommonScoresTableData,
 class Widgets extends Component {
     componentWillMount() {
         this.props.fetchCommonScoresTableData();
-        this.props.fetchEventsData();
-        this.props.fetchEventFull();
+        // this.props.fetchEventsData();
+        // this.props.fetchEventFull();
+        this.props.fetchEvents();
         this.props.fetchVkData();
     }
 
@@ -75,8 +77,9 @@ export default connect(
     dispatch => ({
         fetchCommonScoresTableData: () => dispatch(fetchCommonScoresTableData()),
         clearCommonScoresTableData: () => dispatch(clearCommonScoresTableData()),
-        fetchEventsData: () => dispatch(fetchEventsData()),
-        fetchEventFull: () => dispatch(fetchEventFull()),
+        // fetchEventsData: () => dispatch(fetchEventsData()),
+        // fetchEventFull: () => dispatch(fetchEventFull()),
+        fetchEvents: () => dispatch(fetchEvents()),
         clearEventsData: () => dispatch(clearEventsData()),
         fetchVkData: () => dispatch(fetchVkData()),
         clearVkData: () => dispatch(clearVkData())

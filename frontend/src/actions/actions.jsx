@@ -134,3 +134,8 @@ export const setEventFull = payload => ({
     type: 'SET.EVENT.FULL',
     payload: payload
 });
+
+
+export const fetchEvents = () => ({
+    type: 'FETCH.EVENTS'
+});
