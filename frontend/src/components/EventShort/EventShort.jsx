@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Card, { CardContent } from 'material-ui/Card';
+import Grid from 'material-ui/Grid';
+import Typography from 'material-ui/Typography';
 
 class EventShort extends Component {
     render() {
@@ -8,7 +10,21 @@ class EventShort extends Component {
         return (
             <Card>
                 <CardContent>
-                    {data.time} - {data.home} - {data.score} - {data.away} - {data.date}
+                    <Grid container spacing={8}>
+                        <Grid container justify={'space-between'}>
+                            <Typography type={"subheading"}>
+                                {data.time}
+                            </Typography>
+                            <Typography type={"subheading"}>
+                                {data.date}
+                            </Typography>
+                        </Grid>
+                        <Grid container justify={'center'}>
+                            <Typography type={"subheading"}>
+                                {data.home}  {data.score}  {data.away}
+                            </Typography>
+                        </Grid>
+                    </Grid>
                 </CardContent>
             </Card>
         );

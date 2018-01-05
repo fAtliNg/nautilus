@@ -25,14 +25,14 @@ class EventFull extends Component {
                             <br/>РГУПС, 5-я лига
                         </Typography>
                     </Grid>
-                        <Grid container justify={'center'}>
-                            <Typography type={"title"}>
-                                <br/>
-                            {data.home}  {data.score}  {data.away}
-                            </Typography>
-                        </Grid>
+                    <Grid container justify={'center'}>
+                        <Typography type={"title"}>
+                            <br/>
+                        {data.home}  {data.score}  {data.away}
+                        </Typography>
                     </Grid>
-            </CardContent>
+                    </Grid>
+                </CardContent>
             </Card>
         );
     }
