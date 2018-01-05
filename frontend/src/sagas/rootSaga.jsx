@@ -93,9 +93,7 @@ export function* fetchVideosData(action) {
 // EVENTS ALL
 export function* fetchEventsData() {
     try {
-        console.log('fetchEventsData');
         const response = yield call(API.fetchEvents);
-        console.log('response', response.data);
         yield put(setEventsData(response.data));
         yield put(setEventFull(response.data.reduce((l, e) => e.date > l.date ? e : l)));
     } catch (e) {

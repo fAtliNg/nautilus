@@ -40,8 +40,8 @@ public class ApplicationConfig {
     public PlayersDataController getPlayersDataController() { return new PlayersDataController(); }
 
     @Bean
-    public PhotoGalleryPreviewDataController getPhotoGalleryPreviewDataController() { return new PhotoGalleryPreviewDataController(); }
+    public PhotoGalleryDataController getPhotoGalleryPreviewDataController() { return new PhotoGalleryDataController(); }
 
     @Bean
-    public VideoGalleryPreviewDataController getVideoGalleryPreviewDataController() { return new VideoGalleryPreviewDataController(); }
+    public VideoGalleryDataController getVideoGalleryPreviewDataController() { return new VideoGalleryDataController(); }
 }

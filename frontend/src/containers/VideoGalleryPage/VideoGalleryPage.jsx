@@ -124,7 +124,7 @@ export default connect(
         videos: state.videoPage.videos
     }),
     dispatch => ({
-        fetchVideosData: () => dispatch(fetchVideosData()),
+        fetchVideosData: id => dispatch(fetchVideosData(id)),
         clearVideosData: () => dispatch(clearVideosData())
     })
 )(GalleryPage);

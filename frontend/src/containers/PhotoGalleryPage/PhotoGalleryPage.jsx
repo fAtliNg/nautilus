@@ -27,7 +27,7 @@ export default connect(
         photos: state.photoPage.photos
     }),
     dispatch => ({
-        fetchPhotosData: () => dispatch(fetchPhotosData()),
+        fetchPhotosData: id => dispatch(fetchPhotosData(id)),
         clearPhotosData: () => dispatch(clearPhotosData())
     })
 )(GalleryPage);

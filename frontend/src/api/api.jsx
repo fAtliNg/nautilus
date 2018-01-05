@@ -77,52 +77,7 @@ export const fetchPhotoAlbums = () => {
 };
 
 export const fetchPhotos = id => {
-    return {
-        data: [
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/451d8/1kgzue-zay4.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451d8/1kgzue-zay4.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/451ec/YRBVvN-CBWc.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451ec/YRBVvN-CBWc.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/451f6/ooPSv0GGAhk.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/451f6/ooPSv0GGAhk.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/45200/_32rHf-c9bk.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45200/_32rHf-c9bk.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/4520a/0lXdkplYfZ0.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/4520a/0lXdkplYfZ0.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/45232/2hptBpeUC0U.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45232/2hptBpeUC0U.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/45250/kJfAyjiHgxM.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45250/kJfAyjiHgxM.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/4526e/crD3MNUU87E.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/4526e/crD3MNUU87E.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/45278/q_XsrrE63Rk.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45278/q_XsrrE63Rk.jpg',
-            },
-            {
-                original: 'https://pp.userapi.com/c639427/v639427451/45282/Sm9dIIVQvc4.jpg',
-                thumbnail: 'https://pp.userapi.com/c639427/v639427451/45282/Sm9dIIVQvc4.jpg',
-            }
-
-        ]
-    }
-    // return axiosInstance.get('photo/getAlbums/${id}');
+    return axiosInstance.get(`gallery/photo/${id}`);
 };
 
 // Video Page
@@ -131,21 +86,7 @@ export const fetchVideoAlbums = () => {
 };
 
 export const fetchVideos = id => {
-    return {
-        data: [
-            {
-                original: 'https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4v.jpg',
-                thumbnail: 'https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4v.jpg',
-                embedUrl: 'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0'
-            },
-            {
-                original: 'https://pp.userapi.com/c624724/v624724313/2d517/21reNlVJZDA.jpg',
-                thumbnail: 'https://pp.userapi.com/c624724/v624724313/2d517/21reNlVJZDA.jpg',
-                embedUrl: 'https://cs1-50v4.vkuservideo.net/p21/30bf0887c51b.720.mp4?extra=04AN-x6zE5RJ3WCbFrh_xe3rLOnZJDBx_BWVxGqLh8XEKvKB2RpAX3bbOgJwPdZ95P1H3rYTgaUBrA4qFR9EPvr7EKtUn7y-U1QOuXsUMTAKYCwBHFV-cKhEfAVlbXNHV87tZcq7_XeuTqU'
-            }
-        ]
-    }
-    // return axiosInstance.get('photo/getAlbums/${id}');
+    return axiosInstance.get(`gallery/video/${id}`);
 };
 
 //Events
