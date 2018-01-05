@@ -109,7 +109,7 @@ export const clearVideosData = payload => ({
     type: 'CLEAR.VIDEOS.DATA'
 });
 
-// EVENTS SHORT
+// EVENTS ALL
 export const fetchEventsData = () => ({
     type: 'FETCH.EVENTS.DATA'
 });
@@ -125,12 +125,10 @@ export const clearEventsData = payload => ({
     'CLEAR.EVENTS.DATA'
 });
 
-// EVENT FULL
-export const fetchEventFull = () => ({
-    type: 'FETCH.EVENT.FULL'
-});
 
 export const setEventFull = payload => ({
     type: 'SET.EVENT.FULL',
     payload: payload
 });
+
+

@@ -5,7 +5,6 @@ import photoReducer from './photoReducer'
 import videoReducer from './videoReducer'
 import scoresTableReducer from './scoresTableReducer'
 import eventsReducer from './eventsReducer'
-import eventFullReducer from './eventFullReducer'
 import vkReducer from './vkReducer'
 
 export default combineReducers({
@@ -15,6 +14,5 @@ export default combineReducers({
     videoPage: videoReducer,
     scoresTable: scoresTableReducer,
     events: eventsReducer,
-    eventFull: eventFullReducer,
     vk: vkReducer
 });
