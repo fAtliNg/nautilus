@@ -33,14 +33,14 @@ class EventFull extends Component {
                     </Grid>
                     <Grid container justify={"center"} className={classes.grid}>
                         <Typography type={"subheading"}>
-                            РГУПС, 5-я лига
+                            {data.place}
                         </Typography>
                     </Grid>
                     <Grid container justify={"center"} alignItems={"center"} className={classes.grid}>
                         <Grid item xs={4}>
                             <Avatar
-                                alt="Наутилус"
-                                src="https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"
+                                alt={data.home}
+                                src={data.emblemhome}
                                 className={classes.avatar}
                             />
                         </Grid>
@@ -50,8 +50,8 @@ class EventFull extends Component {
                             </Typography></Grid>
                         <Grid item xs={4}>
                             <Avatar
-                                alt="Соперник"
-                                src="https://pp.userapi.com/c824410/v824410000/7048c/EUN7T5ZJHAA.jpg"
+                                alt={data.away}
+                                src={data.emblemaway}
                                 className={classes.avatar}
                             />
                         </Grid>
