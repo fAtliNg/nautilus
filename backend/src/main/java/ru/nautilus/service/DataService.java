@@ -30,4 +30,5 @@ public class DataService {
     public List<VideoGalleryPreviewInfo> getVideoGalleryPreviewInfo(){ return mongoTemplate.findAll(VideoGalleryPreviewInfo.class); }
     public List<PhotoAlbumInfo> getPhotoAlbumInfo(int id){ return mongoTemplate.find(query(where("albumid").is(id)), PhotoAlbumInfo.class); }
     public List<VideoAlbumInfo> getVideoAlbumInfo(int id){ return mongoTemplate.find(query(where("albumid").is(id)), VideoAlbumInfo.class); }
+    public List<SubscribersInfo> getSubscribersInfo(){ return mongoTemplate.findAll(SubscribersInfo.class); }
 }

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.nautilus.controller.*;
+import ru.nautilus.model.VkWidgetInfo;
 import ru.nautilus.service.DataService;
 
 /**
@@ -44,4 +45,7 @@ public class ApplicationConfig {
 
     @Bean
     public VideoGalleryDataController getVideoGalleryPreviewDataController() { return new VideoGalleryDataController(); }
+
+    @Bean
+    public VkWidgetDataController getVkWidgetDataController() { return new VkWidgetDataController(); }
 }
