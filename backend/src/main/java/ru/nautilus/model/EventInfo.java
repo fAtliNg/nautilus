@@ -12,8 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Getter
 @Setter
-@Document(collection="events")
+@Document(collection = "events")
 public class EventInfo {
+    String place;
+    String emblemhome;
+    String emblemaway;
     String date;
     String time;
     String home;
