@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Card, { CardContent } from 'material-ui/Card';
+import Card, {CardContent} from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
@@ -8,74 +8,58 @@ import {withStyles} from "material-ui/styles/index";
 
 const styles = theme => ({
     avatar: {
-        width:60,
-        height:60,
-        paddingRight:10,
-        paddingLeft:10,
+        width: "100%",
+        height: "100%"
     },
     grid: {
-        padding:10,
+        // padding: 10,
     },
-    score: {
-    }
-
+    score: {}
 });
 
 class EventFull extends Component {
     render() {
-        const { classes, data } = this.props;
+        const {classes, data} = this.props;
         return (
             <Card>
                 <CardContent>
-                    <Grid container spacing={8}>
-                    <Grid container justify={'space-between'}>
-                    <Typography type={"subheading"}>
-                        {data.time}
-                    </Typography>
-                    <Typography type={"subheading"}>
-                        {data.date}
-                    </Typography>
+                    <Grid container justify={"space-between"}>
+                        <Typography type={"subheading"}>
+                            {data.time}
+                        </Typography>
+                        <Typography type={"subheading"}>
+                            {data.date}
+                        </Typography>
                     </Grid>
-
-                    <Grid container justify={'center'} className={classes.grid}>
+                    <Grid container justify={"center"} className={classes.grid}>
                         <Typography type={"subheading"}>
                             РГУПС, 5-я лига
                         </Typography>
                     </Grid>
-
-                    <Grid container justify={'center'} className={classes.grid}>
-                        <Grid item>
-                        <Avatar alt="Наутилус"
+                    <Grid container justify={"center"} alignItems={"center"} className={classes.grid}>
+                        <Grid item xs={4}>
+                            <Avatar
+                                alt="Наутилус"
                                 src="https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"
                                 className={classes.avatar}
-                        /></Grid>
-                            <Grid item>
-                        <Typography type={"display2"} className={classes.score}>
-                          {data.score}
-                        </Typography></Grid>
-                                <Grid item>
-                        <Avatar alt="Соперник"
+                            />
+                        </Grid>
+                        <Grid item align="center" xs={4}>
+                            <Typography type={"display2"} className={classes.score}>
+                                {data.score}
+                            </Typography></Grid>
+                        <Grid item xs={4}>
+                            <Avatar
+                                alt="Соперник"
                                 src="https://pp.userapi.com/c824410/v824410000/7048c/EUN7T5ZJHAA.jpg"
                                 className={classes.avatar}
-                        /></Grid>
-                    </Grid>
-                        <Grid container justify={'center'} className={classes.grid}>
-                            <Grid item>
-                                <Typography type={"title"}>
-                                    {data.home}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography type={"title"}>
-                                   -
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography type={"title"}>
-                                    {data.away}
-                                </Typography>
-                            </Grid>
+                            />
                         </Grid>
+                    </Grid>
+                    <Grid container justify={"center"} className={classes.grid}>
+                        <Typography type={"title"} align={"center"}>
+                            {data.home} - {data.away}
+                        </Typography>
                     </Grid>
                 </CardContent>
             </Card>
