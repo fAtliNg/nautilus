@@ -9,7 +9,9 @@ import {
     setVideoPageAlbumsData,
     setVideosData,
     setPlayersPageData,
-    setVkData
+    setVkData,
+    setAboutClubData,
+    setAchievements,
 } from "../actions/actions";
 import * as API from '../api/api';
 
@@ -101,6 +103,18 @@ export function* fetchEventsData() {
     }
 }
 
+// FETCH ABOUT CLUB INFO
+export function* fetchAboutClubData() {
+    try {
+        const response = yield call(API.fetchAboutClubInfo);
+        yield put(setAboutClubData(response.text));
+        yield put(setAchievements(response.achievements))
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
 
 
 export default function* root() {
@@ -125,6 +139,9 @@ export default function* root() {
 
         // EVENTS
         takeLatest('FETCH.EVENTS.DATA', fetchEventsData),
+
+        // About
+        takeLatest('FETCH.ABOUT.DATA', fetchAboutClubData),
 
     ]
 }
