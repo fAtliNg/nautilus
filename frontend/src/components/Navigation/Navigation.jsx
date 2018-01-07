@@ -4,13 +4,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
 import {Link} from 'react-router-dom'
 import {withStyles} from 'material-ui/styles';
-
-const styles = {
-    toolbar: {
-        minHeight: 0,
-        backgroundColor: "#042554"
-    }
-};
+import styles from './styles';
 
 class Navigation extends Component {
     constructor(props) {
@@ -26,15 +20,15 @@ class Navigation extends Component {
         });
     };
 
-    renderMenuItem = (url, label) => <Link to={url} style={{textDecoration: "none"}}>
+    renderMenuItem = (url, label) => <Link to={url} className={this.props.classes.link}>
         <Button
-            color={"contrast"}
+            className={this.props.classes.menuItem}
             onClick={() => {this.onChangePage(url)}}
         >
             {label}
         </Button>
         {this.state.activeLink === url &&
-        <div style={{height: 4, backgroundColor: "#ffffff"}}/>
+        <div className={this.props.classes.footerButton}/>
         }
     </Link>;
 
@@ -42,7 +36,11 @@ class Navigation extends Component {
         const {classes} = this.props;
         return (
             <div>
-                <img style={{width: "100%"}} src="https://sun1-1.userapi.com/c639317/v639317161/5c8c5/ViE8kREWpkg.jpg"/>
+                <img
+                    alt="header"
+                    src="https://sun1-1.userapi.com/c639317/v639317161/5c8c5/ViE8kREWpkg.jpg"
+                    className={classes.header}
+                />
                 <AppBar position="static">
                     <Toolbar classes={{root: classes.toolbar}}>
                         {this.renderMenuItem('/news', 'Новости')}
