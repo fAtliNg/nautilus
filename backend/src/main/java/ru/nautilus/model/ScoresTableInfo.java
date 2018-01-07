@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="scorestable")
 public class ScoresTableInfo {
     String name;
+    Boolean thisIsUs;
     int games;
     int scores;
 }
