@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import AboutInfo from '../../components/AboutClub/AboutInfo'
+import Achievements from '../../components/AboutClub/Achievements'
 
-// import {fetchHomePageData, clearHomePageData} from '../../actions/actions';
+import {fetchAboutClubData} from '../../actions/actions';
 
 class AboutClubPage extends Component {
     componentWillMount() {
-        // this.props.fetchHomePageData();
+        this.props.fetchAboutClubData();
     }
 
     componentWillUnmount() {
@@ -13,17 +15,22 @@ class AboutClubPage extends Component {
     }
 
     render() {
+        const {aboutPage} = this.props;
         return (
             <div>
-                About club page
+        <AboutInfo text={aboutPage.text}/>
+        <Achievements achievements = {aboutPage.achievements} />
             </div>
-        );
+
+        )
     }
 }
 
 export default connect(
     state => ({
+        aboutPage: state.aboutPage
     }),
     dispatch => ({
+        fetchAboutClubData: () => dispatch(fetchAboutClubData())
     })
 )(AboutClubPage);

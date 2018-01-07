@@ -6,6 +6,7 @@ import videoReducer from './videoReducer'
 import scoresTableReducer from './scoresTableReducer'
 import eventsReducer from './eventsReducer'
 import vkReducer from './vkReducer'
+import aboutClubReducer from './aboutClubReducer'
 
 export default combineReducers({
     newsPage: newsReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     videoPage: videoReducer,
     scoresTable: scoresTableReducer,
     events: eventsReducer,
-    vk: vkReducer
+    vk: vkReducer,
+    aboutPage: aboutClubReducer
 });

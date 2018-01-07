@@ -131,4 +131,18 @@ export const setEventFull = payload => ({
     payload: payload
 });
 
+export const fetchAboutClubData = () => ({
+    type: 'FETCH.ABOUT.DATA'
+});
+
+export const setAboutClubData = payload => ({
+    type: 'SET.ABOUT.DATA',
+    payload: payload
+});
+
+export const setAchievements = payload => ({
+    type: 'SET.ACHIEVEMENTS',
+    payload: payload
+});
+
 
