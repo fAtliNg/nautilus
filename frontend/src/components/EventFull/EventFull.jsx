@@ -27,7 +27,7 @@ class EventFull extends Component {
                     </Grid>
                     <Grid container justify={"center"} alignItems={"center"} className={classes.grid}>
                         <Grid item xs={4}>
-                            <Avatar
+                            <img
                                 alt={data.home}
                                 src={data.emblemhome}
                                 className={classes.avatar}
@@ -39,7 +39,7 @@ class EventFull extends Component {
                             </div>
                         </Grid>
                         <Grid item xs={4}>
-                            <Avatar
+                            <img
                                 alt={data.away}
                                 src={data.emblemaway}
                                 className={classes.avatar}
