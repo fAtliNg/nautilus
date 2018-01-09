@@ -2,39 +2,28 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Card, {CardContent} from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
 import {withStyles} from "material-ui/styles/index";
-
-const styles = theme => ({
-    avatar: {
-        width: "100%",
-        height: "100%"
-    },
-    grid: {
-        // padding: 10,
-    },
-    score: {}
-});
+import styles from './styles';
 
 class EventFull extends Component {
     render() {
         const {classes, data} = this.props;
         return (
-            <Card>
+            <Card className={classes.card}>
                 <CardContent>
                     <Grid container justify={"space-between"}>
-                        <Typography type={"subheading"}>
+                        <div className={classes.subheading}>
                             {data.time}
-                        </Typography>
-                        <Typography type={"subheading"}>
+                        </div>
+                        <div className={classes.subheading}>
                             {data.date}
-                        </Typography>
+                        </div>
                     </Grid>
                     <Grid container justify={"center"} className={classes.grid}>
-                        <Typography type={"subheading"}>
+                        <div className={classes.subheading}>
                             {data.place}
-                        </Typography>
+                        </div>
                     </Grid>
                     <Grid container justify={"center"} alignItems={"center"} className={classes.grid}>
                         <Grid item xs={4}>
@@ -45,9 +34,10 @@ class EventFull extends Component {
                             />
                         </Grid>
                         <Grid item align="center" xs={4}>
-                            <Typography type={"display2"} className={classes.score}>
+                            <div className={classes.display2}>
                                 {data.score}
-                            </Typography></Grid>
+                            </div>
+                        </Grid>
                         <Grid item xs={4}>
                             <Avatar
                                 alt={data.away}
@@ -57,9 +47,9 @@ class EventFull extends Component {
                         </Grid>
                     </Grid>
                     <Grid container justify={"center"} className={classes.grid}>
-                        <Typography type={"title"} align={"center"}>
+                        <div className={classes.title}>
                             {data.home} - {data.away}
-                        </Typography>
+                        </div>
                     </Grid>
                 </CardContent>
             </Card>
