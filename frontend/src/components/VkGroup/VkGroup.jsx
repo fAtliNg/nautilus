@@ -7,31 +7,13 @@ import Card, {CardContent, CardHeader} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import Tooltip from 'material-ui/Tooltip';
-
-const styles = theme => ({
-    button: {
-        width: "100%"
-    },
-    link: {
-        textDecoration: "none"
-    },
-    paper: {
-        textAlign: 'center'
-    },
-    avatar: {
-        width: 40,
-        height: 40
-    },
-    tooltipBottom: {
-        top: 8
-    }
-});
+import styles from './styles';
 
 class VkGroup extends Component {
     render() {
         const {classes, data} = this.props;
         return (
-            <Card>
+            <Card className={classes.card}>
                 <a href={data.data.groupUrl} target="_blank" className={classes.link}>
                     <CardHeader
                         style={{paddingBottom: 8}}
@@ -44,11 +26,11 @@ class VkGroup extends Component {
                                 />
                             </Avatar>
                         }
-                        title={data.data.title}
-                        subheader={data.data.subheader}
+                        title={<div className={classes.title}>{data.data.title}</div>}
+                        subheader={<div className={classes.subheading}>{data.data.subheader}</div>}
                     />
                 </a>
-                <Divider/>
+                <Divider className={classes.divider}/>
                 <CardContent>
                     <Grid container>
                         {data.data.subscribers &&
@@ -71,7 +53,7 @@ class VkGroup extends Component {
                         <Grid item xs={12}>
                             <a href={data.data.subscribeUrl}
                                target="_blank" className={classes.link}>
-                                <Button raised color="primary" className={classes.button}>
+                                <Button className={classes.button}>
                                     Подписаться на новости
                                 </Button>
                             </a>

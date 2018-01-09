@@ -1,25 +1,29 @@
 import {createMuiTheme} from 'material-ui/styles';
 
+const palette = {
+    backgroundColorMain: "#021229",
+    backgroundColorComponent: "#042554",
+    textColor: "rgba(255, 255, 255, 0.87)",
+    textColorSubsidiary: "rgba(255, 255, 255, 0.54)"
+};
+
 export default createMuiTheme({
-    palette: {
-        backgroundColorComponent: "#042554",
-        textColor: "#ffffff"
-    },
+    palette: palette,
     font: {
         title: {
-            color: "rgba(255, 255, 255, 0.87)",
+            color: palette.textColor,
             fontSize: "1.3125rem",
             fontWeight: "500",
             lineHeight: "1.16667em"
         },
         subheading: {
-            color: "rgba(255, 255, 255, 0.87)",
+            color: palette.textColor,
             fontSize: "1rem",
             fontWeight: "400",
             lineHeight: "1.5rem"
         },
         display2: {
-            color: "rgba(255, 255, 255, 0.54)",
+            color: palette.textColorSubsidiary,
             fontSize: "2.8125rem",
             fontWeight: "400",
             lineHeight: "1.06667em"

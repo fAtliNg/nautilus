@@ -9,7 +9,7 @@ export default function styles(theme) {
             color: theme.palette.textColor
         },
         subheader: {
-            color: theme.palette.textColor
+            color: theme.palette.textColorSubsidiary
         },
         expand: {
             transform: 'rotate(0deg)',
