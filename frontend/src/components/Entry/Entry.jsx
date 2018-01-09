@@ -7,36 +7,11 @@ import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
-import red from 'material-ui/colors/red';
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import ShareIcon from 'material-ui-icons/Share';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import MoreVertIcon from 'material-ui-icons/MoreVert';
-
-const styles = theme => ({
-    card: {
-        marginBottom: 16
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-    flexGrow: {
-        flex: '1 1 auto',
-    },
-    content: {
-        paddingTop: 0,
-        paddingBottom: 0
-    }
-});
+import styles from './styles';
 
 class Entry extends React.Component {
     state = { expanded: false };
@@ -64,15 +39,15 @@ class Entry extends React.Component {
                             </Avatar>
                         }
                         action={
-                            <IconButton>
+                            <IconButton color="contrast">
                                 <MoreVertIcon />
                             </IconButton>
                         }
-                        title={title}
-                        subheader={date}
+                        title={<div className={classes.header}>{title}</div>}
+                        subheader={<div className={classes.subheader}>{date}</div>}
                     />
                     <CardContent className={classes.content}>
-                        <Typography component="p">
+                        <Typography component="p" className={classes.content}>
                             <img
                                 src={image}
                                 style={{
@@ -83,15 +58,16 @@ class Entry extends React.Component {
                             {summary}
                         </Typography>
                     </CardContent>
-                    <CardActions disableActionSpacing>
-                        <IconButton aria-label="Add to favorites">
+                    <CardActions disableActionSpacing >
+                        <IconButton aria-label="Add to favorites" color="contrast">
                             <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-label="Share">
+                        <IconButton aria-label="Share" color="contrast">
                             <ShareIcon />
                         </IconButton>
                         <div className={classes.flexGrow} />
                         <IconButton
+                            color="contrast"
                             className={classnames(classes.expand, {
                                 [classes.expandOpen]: this.state.expanded,
                             })}
@@ -105,7 +81,7 @@ class Entry extends React.Component {
                     <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                         <CardContent>
                             {article.map(paragraph => (
-                                <Typography key={paragraph} paragraph>
+                                <Typography key={paragraph} paragraph className={classes.content}>
                                     {paragraph}
                                 </Typography>
                             ))}
