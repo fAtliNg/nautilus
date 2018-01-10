@@ -5,6 +5,7 @@ import Button from 'material-ui/Button';
 import {Link} from 'react-router-dom'
 import {withStyles} from 'material-ui/styles';
 import styles from './styles';
+import banner from './banner.jpeg';
 
 class Navigation extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Navigation extends Component {
             <div>
                 <img
                     alt="header"
-                    src="https://sun1-1.userapi.com/c639317/v639317161/5c8c5/ViE8kREWpkg.jpg"
+                    src={banner}
                     className={classes.header}
                 />
                 <AppBar position="static">
