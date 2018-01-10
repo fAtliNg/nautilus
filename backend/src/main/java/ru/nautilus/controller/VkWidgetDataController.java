@@ -23,7 +23,6 @@ public class VkWidgetDataController {
         VkWidgetInfo result = new VkWidgetInfo(
                 "https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg",
                 "МФК \"Наутилус\"",
-                "61 подписчик",
                 "https://vk.com/mfc_nautilus",
                 "https://vk.com/widget_community.php?act=a_subscribe_box&oid=-152573647&state=1&widget=4",
                 subscribers

@@ -16,19 +16,39 @@ public class DataService {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public List<EventInfo> getEventsInfo(){ return mongoTemplate.findAll(EventInfo.class); }
+    public List<EventInfo> getEventsInfo(){
+        return mongoTemplate.findAll(EventInfo.class);
+    }
+
     public List<NewsInfo> getNewsInfo(){
         return mongoTemplate.findAll(NewsInfo.class);
     }
+
     public List<ScoresTableInfo> getScoresTableInfo(){
         return mongoTemplate.findAll(ScoresTableInfo.class);
     }
+
     public List<PlayersInfo> getPlayersInfo(){
         return mongoTemplate.findAll(PlayersInfo.class);
     }
-    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreviewInfo(){ return mongoTemplate.findAll(PhotoGalleryPreviewInfo.class); }
-    public List<VideoGalleryPreviewInfo> getVideoGalleryPreviewInfo(){ return mongoTemplate.findAll(VideoGalleryPreviewInfo.class); }
-    public List<PhotoAlbumInfo> getPhotoAlbumInfo(int id){ return mongoTemplate.find(query(where("albumid").is(id)), PhotoAlbumInfo.class); }
-    public List<VideoAlbumInfo> getVideoAlbumInfo(int id){ return mongoTemplate.find(query(where("albumid").is(id)), VideoAlbumInfo.class); }
-    public List<SubscribersInfo> getSubscribersInfo(){ return mongoTemplate.findAll(SubscribersInfo.class); }
+
+    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreviewInfo(){
+        return mongoTemplate.findAll(PhotoGalleryPreviewInfo.class);
+    }
+
+    public List<VideoGalleryPreviewInfo> getVideoGalleryPreviewInfo(){
+        return mongoTemplate.findAll(VideoGalleryPreviewInfo.class);
+    }
+
+    public List<PhotoAlbumInfo> getPhotoAlbumInfo(int id){
+        return mongoTemplate.find(query(where("albumid").is(id)), PhotoAlbumInfo.class);
+    }
+
+    public List<VideoAlbumInfo> getVideoAlbumInfo(int id){
+        return mongoTemplate.find(query(where("albumid").is(id)), VideoAlbumInfo.class);
+    }
+
+    public List<SubscribersInfo> getSubscribersInfo(){
+        return mongoTemplate.findAll(SubscribersInfo.class);
+    }
 }

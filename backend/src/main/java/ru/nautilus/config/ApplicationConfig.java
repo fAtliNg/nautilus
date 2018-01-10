@@ -1,12 +1,17 @@
 package ru.nautilus.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.nautilus.controller.*;
-import ru.nautilus.model.VkWidgetInfo;
 import ru.nautilus.service.DataService;
+import ru.nautilus.service.VkMonitoringService;
+import ru.nautilus.vk.VkApiWrapper;
 
 /**
  * @author Denisenko Denis
@@ -16,6 +21,8 @@ import ru.nautilus.service.DataService;
 
 @Configuration
 @EnableWebMvc
+@EnableScheduling
+@PropertySource("classpath:config.properties")
 public class ApplicationConfig {
 
     @Bean
@@ -35,17 +42,48 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public ScoresTableDataController getScoresTableDataController() { return new ScoresTableDataController(); }
+    public ScoresTableDataController getScoresTableDataController() {
+        return new ScoresTableDataController();
+    }
 
     @Bean
-    public PlayersDataController getPlayersDataController() { return new PlayersDataController(); }
+    public PlayersDataController getPlayersDataController() {
+        return new PlayersDataController();
+    }
 
     @Bean
-    public PhotoGalleryDataController getPhotoGalleryPreviewDataController() { return new PhotoGalleryDataController(); }
+    public PhotoGalleryDataController getPhotoGalleryPreviewDataController() {
+        return new PhotoGalleryDataController();
+    }
 
     @Bean
-    public VideoGalleryDataController getVideoGalleryPreviewDataController() { return new VideoGalleryDataController(); }
+    public VideoGalleryDataController getVideoGalleryPreviewDataController() {
+        return new VideoGalleryDataController();
+    }
 
     @Bean
-    public VkWidgetDataController getVkWidgetDataController() { return new VkWidgetDataController(); }
+    public VkWidgetDataController getVkWidgetDataController() {
+        return new VkWidgetDataController();
+    }
+
+    @Bean
+    public VkMonitoringService getVkMonitoringService(){
+        return new VkMonitoringService();
+    }
+
+    @Value("${vk.groupId}")
+    private int vkGroupId;
+
+    @Value("${vk.accessToken}")
+    private String vkAccessToken;
+
+    @Bean
+    public VkApiWrapper getVkWrapper(){
+        return new VkApiWrapper(vkGroupId, vkAccessToken);
+    }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 }
