@@ -48,7 +48,7 @@ public class VkApiWrapper {
 
         members.forEach(member -> subscribers.add(
                 new SubscribersInfo(member.getFirstName(),
-                        member.getPhoto50(), "vk.com/" + member.getScreenName())));
+                        member.getPhoto50(), "http://vk.com/" + member.getScreenName())));
 
         return subscribers;
     }
