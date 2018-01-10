@@ -22,7 +22,7 @@ import ru.nautilus.vk.VkApiWrapper;
 @Configuration
 @EnableWebMvc
 @EnableScheduling
-@PropertySource("classpath:config.properties")
+@PropertySource("file:/var/lib/nautilus/config.properties")
 public class ApplicationConfig {
 
     @Bean
