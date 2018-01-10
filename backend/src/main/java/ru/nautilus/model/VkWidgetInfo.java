@@ -12,7 +12,6 @@ import java.util.List;
 public class VkWidgetInfo {
     String avatar;
     String title;
-    String subheader;
     String groupUrl;
     String subscribeUrl;
     List<SubscribersInfo> subscribers;

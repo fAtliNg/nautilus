@@ -22,9 +22,13 @@ public class PhotoGalleryDataController {
 
     @RequestMapping(value = "/photo", method = GET)
     @ResponseBody
-    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreview() { return Service.getPhotoGalleryPreviewInfo(); }
+    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreview() {
+        return Service.getPhotoGalleryPreviewInfo();
+    }
 
     @RequestMapping(value = "/photo/{id}", method = GET)
     @ResponseBody
-    public List<PhotoAlbumInfo> getPhotoAlbum(@PathVariable("id") int id) { return Service.getPhotoAlbumInfo(id); }
+    public List<PhotoAlbumInfo> getPhotoAlbum(@PathVariable("id") int id) {
+        return Service.getPhotoAlbumInfo(id);
+    }
 }

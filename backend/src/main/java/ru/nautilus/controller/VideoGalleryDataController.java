@@ -21,9 +21,13 @@ public class VideoGalleryDataController {
     protected DataService Service;
 
     @RequestMapping(value = "/video", method = GET)
-    public List<VideoGalleryPreviewInfo> getVideoGalleryPreview() { return Service.getVideoGalleryPreviewInfo(); }
+    public List<VideoGalleryPreviewInfo> getVideoGalleryPreview() {
+        return Service.getVideoGalleryPreviewInfo();
+    }
 
     @RequestMapping(value = "/video/{id}", method = GET)
     @ResponseBody
-    public List<VideoAlbumInfo> getVideoAlbum(@PathVariable("id") int id) { return Service.getVideoAlbumInfo(id); }
+    public List<VideoAlbumInfo> getVideoAlbum(@PathVariable("id") int id) {
+        return Service.getVideoAlbumInfo(id);
+    }
 }

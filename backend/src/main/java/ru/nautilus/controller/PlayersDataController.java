@@ -17,5 +17,7 @@ public class PlayersDataController {
     protected DataService Service;
 
     @RequestMapping(method = GET)
-    public List<PlayersInfo> getPlayers() { return Service.getPlayersInfo(); }
+    public List<PlayersInfo> getPlayers() {
+        return Service.getPlayersInfo();
+    }
 }
