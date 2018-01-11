@@ -10,8 +10,16 @@ import Tooltip from 'material-ui/Tooltip';
 import styles from './styles';
 
 class VkGroup extends Component {
+    getRendomSubscribers = (subscribers, count) => {
+        if (!subscribers) return [];
+        let result = subscribers.sort(() => (0.5-Math.random())).slice(0, count);
+        return result;
+    };
+
     render() {
         const {classes, data} = this.props;
+        const subscribers = this.getRendomSubscribers(data.data.subscribers, 12);
+        const subscribersCount = data.data.subscribers ? data.data.subscribers.length : 0;
         return (
             <Card className={classes.card}>
                 <a href={data.data.groupUrl} target="_blank" className={classes.link}>
@@ -27,14 +35,14 @@ class VkGroup extends Component {
                             </Avatar>
                         }
                         title={<div className={classes.title}>{data.data.title}</div>}
-                        subheader={<div className={classes.subheading}>{data.data.subheader}</div>}
+                        subheader={<div className={classes.subheading}>{`${subscribersCount} подписчиков`}</div>}
                     />
                 </a>
                 <Divider className={classes.divider}/>
                 <CardContent>
                     <Grid container>
-                        {data.data.subscribers &&
-                        data.data.subscribers.map(subscriber =>
+                        {subscribers &&
+                        subscribers.map(subscriber =>
                             <Grid key={subscriber.id} item xs={3} className={classes.paper}>
                                 <a href={subscriber.url} target="_blank">
                                     <Tooltip title={subscriber.name} placement="bottom" className={classes.tooltipBottom}>
