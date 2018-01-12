@@ -43,7 +43,7 @@ class VkGroup extends Component {
                     <Grid container>
                         {subscribers &&
                         subscribers.map(subscriber =>
-                            <Grid key={subscriber.id} item xs={3} className={classes.paper}>
+                            <Grid key={subscriber.url} item xs={3} className={classes.paper}>
                                 <a href={subscriber.url} target="_blank">
                                     <Tooltip title={subscriber.name} placement="bottom" className={classes.tooltipBottom}>
                                         <Avatar className={classes.avatar}>

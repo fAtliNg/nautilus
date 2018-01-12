@@ -6,7 +6,7 @@ import Grid from 'material-ui/Grid';
 import styles from './styles';
 
 class ScoresTable extends Component {
-    renderRow = row => <Grid container className={row.thisIsUs ? this.props.classes.thisIsUs : undefined}>
+    renderRow = row => <Grid key={row.place} container className={row.thisIsUs ? this.props.classes.thisIsUs : undefined}>
         <Grid item xs={1}>
             {row.place}
         </Grid>
