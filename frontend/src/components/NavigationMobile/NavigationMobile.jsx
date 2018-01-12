@@ -8,22 +8,16 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
+import { ListItemIcon, ListItemText } from 'material-ui/List';
+import EventIcon from 'material-ui-icons/Event';
+import AssessmentIcon from 'material-ui-icons/Assessment';
+import VideogameAssetIcon from 'material-ui-icons/VideogameAsset';
+import PeopleIcon from 'material-ui-icons/People';
+import InfoIcon from 'material-ui-icons/Info';
+import PhotoIcon from 'material-ui-icons/Photo';
+import VideocamIcon from 'material-ui-icons/Videocam';
 
-const styles = {
-    root: {
-        width: '100%',
-    },
-    flex: {
-        flex: 1,
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-    drawer: {
-        margin: 8
-    }
-};
+import styles from './styles';
 
 class NavigationMobile extends Component {
     constructor(props) {
@@ -52,7 +46,7 @@ class NavigationMobile extends Component {
     });
 
     renderAppBar = () =>
-        <AppBar position="static">
+        <AppBar position="static" className={this.props.classes.appBar}>
             <Toolbar>
                 <IconButton className={this.props.classes.menuButton} color="contrast" aria-label="Menu"
                             onClick={() => {
@@ -76,31 +70,50 @@ class NavigationMobile extends Component {
                     classes={{
                         paper: classes.drawer
                     }}
-                    docked={false}
                     open={this.state.open}
-                    onRequestChange={(open) => this.setState({open})}
                 >
                     {this.renderAppBar()}
                     <NavItem to="/news" handleClose={this.handleClose}>
-                        Новости
+                        <ListItemIcon>
+                            <EventIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Новости" />
                     </NavItem>
                     <NavItem to="/table" handleClose={this.handleClose}>
-                        Таблица
+                        <ListItemIcon>
+                            <AssessmentIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Таблица" />
                     </NavItem>
                     <NavItem to="/matches" handleClose={this.handleClose}>
-                        Матчи
+                        <ListItemIcon>
+                            <VideogameAssetIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Матчи" />
                     </NavItem>
                     <NavItem to="/players" handleClose={this.handleClose}>
-                        Игроки
+                        <ListItemIcon>
+                            <PeopleIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Игроки" />
                     </NavItem>
                     <NavItem to="/club" handleClose={this.handleClose}>
-                        О клубе
+                        <ListItemIcon>
+                            <InfoIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="О клубе" />
                     </NavItem>
                     <NavItem to="/photo" handleClose={this.handleClose}>
-                        Фото
+                        <ListItemIcon>
+                            <PhotoIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Фото" />
                     </NavItem>
                     <NavItem to="/video" handleClose={this.handleClose}>
-                        Видео
+                        <ListItemIcon>
+                            <VideocamIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Видео" />
                     </NavItem>
                 </Drawer>
             </div>

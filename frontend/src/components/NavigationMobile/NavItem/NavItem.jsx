@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import {MenuItem} from 'material-ui';
+import Divider from 'material-ui/Divider';
+import KeyboardArrowRightIcon from 'material-ui-icons/KeyboardArrowRight';
 
 class NavItem extends Component {
     static propTypes = {
@@ -14,7 +16,9 @@ class NavItem extends Component {
         return <Link to={to}>
             <MenuItem onTouchTap={() => {handleClose(to)}}>
                 {children}
+                <KeyboardArrowRightIcon/>
             </MenuItem>
+            <Divider/>
         </Link>;
     }
 }
