@@ -9,7 +9,7 @@ export default function styles(theme) {
         },
         thisIsUs: {
             fontWeight: "bold",
-            backgroundColor: theme.palette.turquoise
+            color: theme.palette.turquoise
         }
     }
 };
