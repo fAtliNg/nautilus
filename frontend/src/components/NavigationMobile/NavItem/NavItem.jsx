@@ -14,7 +14,7 @@ class NavItem extends Component {
     render() {
         const {handleClose, to, children} = this.props;
         return <Link to={to}>
-            <MenuItem>
+            <MenuItem onClick={handleClose}>
                 {children}
                 <KeyboardArrowRightIcon/>
             </MenuItem>
