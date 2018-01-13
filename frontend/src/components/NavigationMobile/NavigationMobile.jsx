@@ -41,9 +41,9 @@ class NavigationMobile extends Component {
 
     handleToggle = () => this.setState({open: !this.state.open});
 
-    handleClose = () => this.setState({
+    handleClose = url => this.setState({
         open: false,
-        // activeLink: url
+        activeLink: url
     });
 
     renderAppBar = () =>
