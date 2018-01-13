@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import NavItem from './NavItem/NavItem';
+// import NavItem from './NavItem/NavItem';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
@@ -16,8 +16,9 @@ import PeopleIcon from 'material-ui-icons/People';
 import InfoIcon from 'material-ui-icons/Info';
 import PhotoIcon from 'material-ui-icons/Photo';
 import VideocamIcon from 'material-ui-icons/Videocam';
+import {Link} from 'react-router-dom'
 
-// import styles from './styles';
+import styles from './styles';
 
 class NavigationMobile extends Component {
     constructor(props) {
@@ -46,15 +47,15 @@ class NavigationMobile extends Component {
     });
 
     renderAppBar = () =>
-        <AppBar position="static" /*className={this.props.classes.appBar}*/>
+        <AppBar position="static" className={this.props.classes.appBar}>
             <Toolbar>
-                <IconButton /*className={this.props.classes.menuButton}*/ color="contrast" aria-label="Menu"
+                <IconButton className={this.props.classes.menuButton} color="contrast" aria-label="Menu"
                             onClick={() => {
                                 this.handleToggle()
                             }}>
                     <MenuIcon/>
                 </IconButton>
-                <Typography type="title" color="inherit" /*className={this.props.classes.flex}*/>
+                <Typography type="title" color="inherit" className={this.props.classes.flex}>
                     {this.titles[this.state.activeLink]}
                 </Typography>
                 {/*<Button color="contrast">Login</Button>*/}
@@ -62,68 +63,73 @@ class NavigationMobile extends Component {
         </AppBar>;
 
     render() {
-        // const {classes} = this.props;
+        const {classes} = this.props;
         return (
             <div>
                 {this.renderAppBar()}
                 <Drawer
-                    // classes={{
-                    //     paper: classes.drawer
-                    // }}
+                    classes={{
+                        paper: classes.drawer
+                    }}
                     open={this.state.open}
                 >
                     {this.renderAppBar()}
-                    <NavItem to="/news" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <EventIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Новости" />
-                    </NavItem>
-                    <NavItem to="/table" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <AssessmentIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Таблица" />
-                    </NavItem>
-                    <NavItem to="/matches" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <VideogameAssetIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Матчи" />
-                    </NavItem>
-                    <NavItem to="/players" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <PeopleIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Игроки" />
-                    </NavItem>
-                    <NavItem to="/club" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <InfoIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="О клубе" />
-                    </NavItem>
-                    <NavItem to="/photo" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <PhotoIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Фото" />
-                    </NavItem>
-                    <NavItem to="/video" handleClose={this.handleClose}>
-                        <ListItemIcon>
-                            <VideocamIcon/>
-                        </ListItemIcon>
-                        <ListItemText inset primary="Видео" />
-                    </NavItem>
+                    <Link to="/news">
+                        Новости
+                    </Link>
+                    <Link to="/table">
+                        Таблица
+                    </Link>
+                    {/*<NavItem to="/news" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<EventIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Новости" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/table" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<AssessmentIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Таблица" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/matches" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<VideogameAssetIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Матчи" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/players" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<PeopleIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Игроки" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/club" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<InfoIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="О клубе" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/photo" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<PhotoIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Фото" />*/}
+                    {/*</NavItem>*/}
+                    {/*<NavItem to="/video" handleClose={this.handleClose}>*/}
+                        {/*<ListItemIcon>*/}
+                            {/*<VideocamIcon/>*/}
+                        {/*</ListItemIcon>*/}
+                        {/*<ListItemText inset primary="Видео" />*/}
+                    {/*</NavItem>*/}
                 </Drawer>
             </div>
         );
     }
 }
 
-// NavigationMobile.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
+NavigationMobile.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
-// export default withStyles(styles)(NavigationMobile);
-export default NavigationMobile;
+export default withStyles(styles)(NavigationMobile);
