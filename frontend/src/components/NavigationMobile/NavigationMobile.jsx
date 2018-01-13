@@ -87,36 +87,36 @@ class NavigationMobile extends Component {
                         </ListItemIcon>
                         <ListItemText inset primary="Таблица" />
                     </NavItem>
-                    {/*<NavItem to="/matches" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<VideogameAssetIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Матчи" />*/}
-                    {/*</NavItem>*/}
-                    {/*<NavItem to="/players" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<PeopleIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Игроки" />*/}
-                    {/*</NavItem>*/}
-                    {/*<NavItem to="/club" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<InfoIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="О клубе" />*/}
-                    {/*</NavItem>*/}
-                    {/*<NavItem to="/photo" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<PhotoIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Фото" />*/}
-                    {/*</NavItem>*/}
-                    {/*<NavItem to="/video" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<VideocamIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Видео" />*/}
-                    {/*</NavItem>*/}
+                    <NavItem to="/matches" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <VideogameAssetIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Матчи" />
+                    </NavItem>
+                    <NavItem to="/players" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <PeopleIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Игроки" />
+                    </NavItem>
+                    <NavItem to="/club" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <InfoIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="О клубе" />
+                    </NavItem>
+                    <NavItem to="/photo" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <PhotoIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Фото" />
+                    </NavItem>
+                    <NavItem to="/video" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <VideocamIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Видео" />
+                    </NavItem>
                 </Drawer>
             </div>
         );
