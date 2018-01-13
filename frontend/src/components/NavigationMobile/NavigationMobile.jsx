@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-// import NavItem from './NavItem/NavItem';
+import NavItem from './NavItem/NavItem';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
@@ -74,24 +74,19 @@ class NavigationMobile extends Component {
                     open={this.state.open}
                 >
                     {this.renderAppBar()}
-                    <Link to="/news">
-                        Новости
-                    </Link>
-                    <Link to="/table">
-                        Таблица
-                    </Link>
-                    {/*<NavItem to="/news" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<EventIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Новости" />*/}
-                    {/*</NavItem>*/}
-                    {/*<NavItem to="/table" handleClose={this.handleClose}>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<AssessmentIcon/>*/}
-                        {/*</ListItemIcon>*/}
-                        {/*<ListItemText inset primary="Таблица" />*/}
-                    {/*</NavItem>*/}
+
+                    <NavItem to="/news" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <EventIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Новости" />
+                    </NavItem>
+                    <NavItem to="/table" handleClose={this.handleClose}>
+                        <ListItemIcon>
+                            <AssessmentIcon/>
+                        </ListItemIcon>
+                        <ListItemText inset primary="Таблица" />
+                    </NavItem>
                     {/*<NavItem to="/matches" handleClose={this.handleClose}>*/}
                         {/*<ListItemIcon>*/}
                             {/*<VideogameAssetIcon/>*/}
