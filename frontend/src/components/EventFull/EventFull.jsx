@@ -45,10 +45,17 @@ class EventFull extends Component {
                             />
                         </Grid>
                     </Grid>
-                    <Grid container justify={"center"} className={classes.grid}>
-                        <div className={classes.title}>
-                            {data.home} - {data.away}
-                        </div>
+                    <Grid container>
+                        <Grid item xs={6}>
+                            <div className={classes.teamHome}>
+                                {data.home}
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div className={classes.teamAway}>
+                                {data.away}
+                            </div>
+                        </Grid>
                     </Grid>
                 </CardContent>
             </Card>
