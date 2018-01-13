@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Grid from 'material-ui/Grid';
 import EventFull from '../../components/EventFull/EventFull';
 import EventShort from '../../components/EventShort/EventShort';
 
@@ -15,11 +16,21 @@ class MatchesPage extends Component {
     }
 
     render() {
-        const {eventsShort} = this.props;
+        const {events} = this.props;
         return (
             <div>
-                <EventFull/>
-                {eventsShort.data.map((event, i) => <EventShort key={i} data={event}/>)}
+                <Grid container justify="center">
+                    <Grid item xs={12}>
+                    <EventFull data={events.fullEvent}/>
+                    </Grid>
+                </Grid>
+                <Grid container justify="center">
+                    {events.shortEvents.map((event, i) =>
+                        <Grid item xs={12} key={i}>
+                            <EventShort data={event}/>
+                        </Grid>
+                    )}
+                </Grid>
             </div>
         )
     }
@@ -27,7 +38,7 @@ class MatchesPage extends Component {
 
 export default connect(
     state => ({
-        eventsShort: state.eventsShort
+        events: state.events
     }),
     dispatch => ({
         fetchEventsData: () => dispatch(fetchEventsData()),

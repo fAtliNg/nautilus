@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Card, {CardContent} from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
-import Avatar from 'material-ui/Avatar';
 import {withStyles} from "material-ui/styles/index";
 import styles from './styles';
 
