@@ -17,7 +17,7 @@ import InfoIcon from 'material-ui-icons/Info';
 import PhotoIcon from 'material-ui-icons/Photo';
 import VideocamIcon from 'material-ui-icons/Videocam';
 
-import styles from './styles';
+// import styles from './styles';
 
 class NavigationMobile extends Component {
     constructor(props) {
@@ -46,15 +46,15 @@ class NavigationMobile extends Component {
     });
 
     renderAppBar = () =>
-        <AppBar position="static" className={this.props.classes.appBar}>
+        <AppBar position="static" /*className={this.props.classes.appBar}*/>
             <Toolbar>
-                <IconButton className={this.props.classes.menuButton} color="contrast" aria-label="Menu"
+                <IconButton /*className={this.props.classes.menuButton}*/ color="contrast" aria-label="Menu"
                             onClick={() => {
                                 this.handleToggle()
                             }}>
                     <MenuIcon/>
                 </IconButton>
-                <Typography type="title" color="inherit" className={this.props.classes.flex}>
+                <Typography type="title" color="inherit" /*className={this.props.classes.flex}*/>
                     {this.titles[this.state.activeLink]}
                 </Typography>
                 {/*<Button color="contrast">Login</Button>*/}
@@ -62,14 +62,14 @@ class NavigationMobile extends Component {
         </AppBar>;
 
     render() {
-        const {classes} = this.props;
+        // const {classes} = this.props;
         return (
             <div>
                 {this.renderAppBar()}
                 <Drawer
-                    classes={{
-                        paper: classes.drawer
-                    }}
+                    // classes={{
+                    //     paper: classes.drawer
+                    // }}
                     open={this.state.open}
                 >
                     {this.renderAppBar()}
@@ -121,8 +121,9 @@ class NavigationMobile extends Component {
     }
 }
 
-NavigationMobile.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
+// NavigationMobile.propTypes = {
+//     classes: PropTypes.object.isRequired,
+// };
 
-export default withStyles(styles)(NavigationMobile);
+// export default withStyles(styles)(NavigationMobile);
+export default NavigationMobile;
