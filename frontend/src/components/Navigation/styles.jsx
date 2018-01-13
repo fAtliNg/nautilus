@@ -9,7 +9,7 @@ export default function styles(theme) {
         },
         footerButton: {
             height: 4,
-            backgroundColor: theme.palette.textColor
+            backgroundColor: theme.palette.turquoise
         },
         link: {
             textDecoration: "none"

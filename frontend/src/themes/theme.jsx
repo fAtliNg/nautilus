@@ -4,7 +4,8 @@ const palette = {
     backgroundColorMain: "#021229",
     backgroundColorComponent: "#042554",
     textColor: "rgba(255, 255, 255, 0.87)",
-    textColorSubsidiary: "rgba(255, 255, 255, 0.54)"
+    textColorSubsidiary: "rgba(255, 255, 255, 0.54)",
+    turquoise: "rgb(2,143,184)"
 };
 
 export default createMuiTheme({
