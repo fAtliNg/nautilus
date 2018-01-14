@@ -3,32 +3,26 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import {Link} from 'react-router-dom'
 import Card, {CardMedia, CardContent} from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-
-const styles = theme => ({
-    media: {
-        height: 200
-    }
-});
+import styles from './styles';
 
 class GalleryPreview extends Component {
     render() {
         const {classes, data, path} = this.props;
         return (
             <Link to={`/${path}/${data.id}`} style={{textDecoration: 'none'}}>
-                <Card>
+                <Card className={classes.card}>
                     <CardMedia
                         className={classes.media}
                         image={data.previewImage}
                         title={data.name}
                     />
                     <CardContent>
-                        <Typography type="headline" component="h2">
+                        <div className={classes.title}>
                             {data.name}
-                        </Typography>
-                        <Typography component="p">
+                        </div>
+                        <div className={classes.subheading}>
                             {data.description}
-                        </Typography>
+                        </div>
                     </CardContent>
                 </Card>
             </Link>
