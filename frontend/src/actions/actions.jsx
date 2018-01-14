@@ -140,9 +140,6 @@ export const setAboutClubData = payload => ({
     payload: payload
 });
 
-export const setAchievements = payload => ({
-    type: 'SET.ACHIEVEMENTS',
-    payload: payload
+export const clearAboutClubData = () => ({
+    type: 'CLEAR.ABOUT.DATA'
 });
-
-

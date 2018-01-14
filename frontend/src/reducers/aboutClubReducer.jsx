@@ -15,17 +15,14 @@ export default (state = initialState, action) => {
             break;
         case 'SET.ABOUT.DATA':
             newState = {
-                ...state,
-                text: action.payload,
+                text: action.payload.text,
+                achievements: action.payload.achievements,
                 state: 'is_established'
             };
             break;
-        case 'SET.ACHIEVEMENTS':
-            newState = {
-                ...state,
-                achievements: action.payload,
-                state: 'is_established'
-            }
+        case 'CLEAR.ABOUT.DATA':
+            newState = initialState;
+            break;
         default:
             // no op
     }

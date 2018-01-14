@@ -10,8 +10,7 @@ import {
     setVideosData,
     setPlayersPageData,
     setVkData,
-    setAboutClubData,
-    setAchievements,
+    setAboutClubData
 } from "../actions/actions";
 import * as API from '../api/api';
 
@@ -107,15 +106,11 @@ export function* fetchEventsData() {
 export function* fetchAboutClubData() {
     try {
         const response = yield call(API.fetchAboutClubInfo);
-        yield put(setAboutClubData(response.text));
-        yield put(setAchievements(response.achievements))
+        yield put(setAboutClubData(response.data));
     } catch (e) {
         console.log(e)
     }
 }
-
-
-
 
 export default function* root() {
     yield [
@@ -142,6 +137,5 @@ export default function* root() {
 
         // About
         takeLatest('FETCH.ABOUT.DATA', fetchAboutClubData),
-
     ]
 }
