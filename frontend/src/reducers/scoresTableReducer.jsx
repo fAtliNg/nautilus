@@ -1,22 +1,22 @@
 const initialState = {
     data: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
     let newState = state;
     switch (action.type) {
-        case 'FETCH.NEWSPAGE.ENTRIES.DATA':
+        case 'FETCH.COMMON.SCORESTABLE.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.COMMON.SCORESTABLE.DATA':
             newState = {
                 ...state,
                 data: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.COMMON.SCORESTABLE.DATA':

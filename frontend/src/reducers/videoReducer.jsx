@@ -1,7 +1,7 @@
 const initialState = {
     albums: [],
     videos: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -10,41 +10,41 @@ export default (state = initialState, action) => {
         case 'FETCH.VIDEOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.VIDEOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
                 albums: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.VIDEOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
                 albums: [],
-                state: 'initial'
+                pending: false
             };
             break;
         case 'FETCH.VIDEOS.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.VIDEOS.DATA':
             newState = {
                 ...state,
                 videos: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.VIDEOS.DATA':
             newState = {
                 ...state,
                 videos: [],
-                state: 'initial'
+                pending: false
             };
             break;
         default:

@@ -1,7 +1,7 @@
 const initialState = {
     text: {},
     achievements: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -10,14 +10,14 @@ export default (state = initialState, action) => {
         case 'FETCH.ABOUT.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.ABOUT.DATA':
             newState = {
                 text: action.payload.text,
                 achievements: action.payload.achievements,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.ABOUT.DATA':

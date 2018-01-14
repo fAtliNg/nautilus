@@ -1,6 +1,6 @@
 const initialState = {
     data: {},
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -9,14 +9,14 @@ export default (state = initialState, action) => {
         case 'FETCH.VK.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.VK.DATA':
             newState = {
                 ...state,
                 data: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.VK.DATA':

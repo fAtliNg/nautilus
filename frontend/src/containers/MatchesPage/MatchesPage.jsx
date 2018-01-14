@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Grid from 'material-ui/Grid';
 import EventFull from '../../components/EventFull/EventFull';
 import EventShort from '../../components/EventShort/EventShort';
+import Pending from '../../components/Pending/Pending';
 
 import {fetchEventsData, clearEventsData} from '../../actions/actions';
 
@@ -18,7 +19,7 @@ class MatchesPage extends Component {
     render() {
         const {events} = this.props;
         return (
-            <div>
+            <Pending pending={events.pending}>
                 <Grid container justify="center">
                     <Grid item xs={12}>
                     <EventFull data={events.fullEvent}/>
@@ -31,7 +32,7 @@ class MatchesPage extends Component {
                         </Grid>
                     )}
                 </Grid>
-            </div>
+            </Pending>
         )
     }
 }

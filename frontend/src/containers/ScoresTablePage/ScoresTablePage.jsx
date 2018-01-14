@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ScoresTable from '../../components/ScoresTable/ScoresTable';
+import Pending from '../../components/Pending/Pending';
 
 import {fetchCommonScoresTableData, clearCommonScoresTableData} from '../../actions/actions';
 
@@ -15,7 +16,9 @@ class ScoresTablePage extends Component {
 
     render() {
         const {scoresTable} = this.props;
-        return <ScoresTable data={scoresTable.data}/>;
+        return  <Pending pending={scoresTable.pending}>
+            <ScoresTable data={scoresTable.data}/>
+        </Pending>;
     }
 }
 

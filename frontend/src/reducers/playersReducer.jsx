@@ -1,6 +1,6 @@
 const initialState = {
     players: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -9,14 +9,14 @@ export default (state = initialState, action) => {
         case 'FETCH.PLAYERSPAGE.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.PLAYERSPAGE.DATA':
             newState = {
                 ...state,
                 players: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.PLAYERSPAGE.DATA':

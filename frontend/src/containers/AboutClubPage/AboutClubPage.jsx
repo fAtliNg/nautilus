@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AboutInfo from '../../components/AboutClub/AboutInfo/AboutInfo'
 import Achievements from '../../components/AboutClub/Achievements/Achievements'
+import Pending from '../../components/Pending/Pending';
 
 import {
     fetchAboutClubData,
@@ -20,10 +21,10 @@ class AboutClubPage extends Component {
     render() {
         const {aboutPage} = this.props;
         return (
-            <div>
+            <Pending pending={aboutPage.pending}>
                 <AboutInfo text={aboutPage.text}/>
                 <Achievements achievements={aboutPage.achievements}/>
-            </div>
+            </Pending>
         )
     }
 }

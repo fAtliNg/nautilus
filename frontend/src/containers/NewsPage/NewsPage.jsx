@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Entry from '../../components/Entry/Entry';
+import Pending from '../../components/Pending/Pending';
 
 import {fetchNewsPageEntriesData, clearNewsPageEntriesData} from '../../actions/actions';
 
@@ -16,7 +17,7 @@ class NewsPage extends Component {
     render() {
         const {newsPage} = this.props;
         return (
-            <div>
+            <Pending pending={newsPage.pending}>
                 {
                     newsPage.entries && Array.isArray(newsPage.entries) &&
                     newsPage.entries.map(entry => (
@@ -30,7 +31,7 @@ class NewsPage extends Component {
                         />
                     ))
                 }
-            </div>
+            </Pending>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Pending from '../../components/Pending/Pending';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -17,7 +18,9 @@ class GalleryPage extends Component {
     render() {
         const {photos} = this.props;
         return (
-            <ImageGallery items={photos}/>
+            <Pending pending={photos.pending}>
+                <ImageGallery items={photos}/>
+            </Pending>
         );
     }
 }

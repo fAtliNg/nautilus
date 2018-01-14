@@ -1,6 +1,6 @@
 const initialState = {
     entries: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -9,14 +9,14 @@ export default (state = initialState, action) => {
         case 'FETCH.NEWSPAGE.ENTRIES.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.NEWSPAGE.ENTRIES.DATA':
             newState = {
                 ...state,
                 entries: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.NEWSPAGE.ENTRIES.DATA':

@@ -1,7 +1,7 @@
 const initialState = {
     shortEvents: [],
     fullEvent: {},
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -10,14 +10,14 @@ export default (state = initialState, action) => {
         case 'FETCH.EVENTS.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.EVENTS.DATA':
             newState = {
                 ...state,
                 shortEvents: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.EVENTS.DATA':
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
             newState = {
                 ...state,
                 fullEvent: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         default:

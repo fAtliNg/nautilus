@@ -1,7 +1,7 @@
 const initialState = {
     albums: [],
     photos: [],
-    state: 'initial'
+    pending: false
 };
 
 export default (state = initialState, action) => {
@@ -10,41 +10,41 @@ export default (state = initialState, action) => {
         case 'FETCH.PHOTOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.PHOTOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
                 albums: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.PHOTOPAGE.ALBUMS.DATA':
             newState = {
                 ...state,
                 albums: [],
-                state: 'initial'
+                pending: false
             };
             break;
         case 'FETCH.PHOTOS.DATA':
             newState = {
                 ...state,
-                state: 'receiving'
+                pending: true
             };
             break;
         case 'SET.PHOTOS.DATA':
             newState = {
                 ...state,
                 photos: action.payload,
-                state: 'is_established'
+                pending: false
             };
             break;
         case 'CLEAR.PHOTOS.DATA':
             newState = {
                 ...state,
                 photos: [],
-                state: 'initial'
+                pending: false
             };
             break;
         default:

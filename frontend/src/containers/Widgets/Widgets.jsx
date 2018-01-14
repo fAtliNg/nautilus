@@ -5,8 +5,10 @@ import EventFull from '../../components/EventFull/EventFull';
 import EventShort from '../../components/EventShort/EventShort';
 import ScoresTable from '../../components/ScoresTable/ScoresTable';
 import VkGroup from '../../components/VkGroup/VkGroup';
+import Pending from '../../components/Pending/Pending';
 
-import {fetchCommonScoresTableData,
+import {
+    fetchCommonScoresTableData,
     clearCommonScoresTableData,
     fetchEventsData,
     clearEventsData,
@@ -32,32 +34,33 @@ class Widgets extends Component {
         return (
             <Grid container>
                 <Grid item xs={12}>
-                    <EventFull
-                        data={events.fullEvent}
-                    />
+                    <Pending pending={events.pending}>
+                        <EventFull
+                            data={events.fullEvent}
+                        />
+                    </Pending>
                 </Grid>
-                {events.shortEvents.length > 1 &&
+                <Pending pending={events.pending}>
+                    {events.shortEvents.map(event =>
+                        <Grid item xs={12}>
+                            <EventShort
+                                data={event}
+                            />
+                        </Grid>
+                    )}
+                </Pending>
+                <Pending pending={scoresTable.pending}>
                     <Grid item xs={12}>
-                        <EventShort
-                            data={events.shortEvents[1]}
-                        />
-                    </Grid>
-                }
-                {events.shortEvents.length > 2 &&
-                    <Grid item xs={12}>
-                        <EventShort
-                            data={events.shortEvents[2]}
-                        />
-                    </Grid>
-                }
-                {scoresTable.data.length > 0 &&
-                    <Grid item xs={12}>
+                        {scoresTable.data.length > 0 &&
                         <ScoresTable data={scoresTable.data}/>
+                        }
                     </Grid>
-                }
-                <Grid item xs={12}>
-                    <VkGroup data={vk}/>
-                </Grid>
+                </Pending>
+                <Pending pending={vk.pending}>
+                    <Grid item xs={12}>
+                        <VkGroup data={vk}/>
+                    </Grid>
+                </Pending>
             </Grid>
         );
     }
