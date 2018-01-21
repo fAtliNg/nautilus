@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  * @author Denisenko Denis
  */
 @Component
-public class VkApiWrapper {
+public class VkApiWrapper implements VkApi {
 
     private final int groupId;
     private final VkApiClient vkApiClient = new VkApiClient(HttpTransportClient.getInstance());

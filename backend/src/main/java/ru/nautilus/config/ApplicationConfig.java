@@ -10,7 +10,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.nautilus.controller.*;
 import ru.nautilus.service.DataService;
-import ru.nautilus.service.VkMonitoringService;
+import ru.nautilus.service.MonitoringService;
+import ru.nautilus.vk.GoalstreamApi;
+import ru.nautilus.vk.GoalstreamApiWrapper;
+import ru.nautilus.vk.VkApi;
 import ru.nautilus.vk.VkApiWrapper;
 
 /**
@@ -67,8 +70,8 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public VkMonitoringService getVkMonitoringService(){
-        return new VkMonitoringService();
+    public MonitoringService getMonitoringService(){
+        return new MonitoringService();
     }
 
     @Value("${vk.groupId}")
@@ -78,8 +81,16 @@ public class ApplicationConfig {
     private String vkAccessToken;
 
     @Bean
-    public VkApiWrapper getVkWrapper(){
+    public VkApi getVkApi(){
         return new VkApiWrapper(vkGroupId, vkAccessToken);
+    }
+
+    @Value("${goalstream.scoresTableRequestUrl}")
+    private String goalstreamScoresTableRequestUrl;
+
+    @Bean
+    public GoalstreamApi getGoalstreamApi(){
+        return new GoalstreamApiWrapper(goalstreamScoresTableRequestUrl);
     }
 
     @Bean
