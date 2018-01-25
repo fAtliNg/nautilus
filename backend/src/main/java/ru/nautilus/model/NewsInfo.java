@@ -10,7 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Document(collection="news")
 public class NewsInfo {
+    String title;
     String date;
     String image;
     String summary;
+    String[] article;
 }

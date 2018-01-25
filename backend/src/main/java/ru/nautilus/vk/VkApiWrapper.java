@@ -48,7 +48,7 @@ public class VkApiWrapper implements VkApi {
                                             .map(value -> String.valueOf(value))
                                             .collect(Collectors.toList());
 
-        List<UserXtrCounters> members  = vkApiClient.users().get((GroupActor) groupActor)
+        List<UserXtrCounters> members  = vkApiClient.users().get(groupActor)
                                             .userIds(subscriberIds)
                                             .fields(new UserField[]{UserField.PHOTO_50, UserField.SCREEN_NAME})
                                             .execute();
@@ -70,9 +70,16 @@ public class VkApiWrapper implements VkApi {
                     .filter(post -> (post.getIsPinned() == null) &&
                                     (getPhotoAttachmentsFromPost(post).count() > 0))
                     .map(post -> {
-                            WallpostAttachment photoAttachment = (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
-                            return new NewsInfo(post.getDate().toString(), photoAttachment.getPhoto().getPhoto130(), post.getText());
-                    }).collect(Collectors.toList());
+                        WallpostAttachment photoAttachment =
+                                (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
+
+                        return new NewsInfo("",
+                                            post.getDate().toString(),
+                                            photoAttachment.getPhoto().getPhoto130(),
+                                            post.getText(),
+                                            new String[0]);
+                    })
+                    .collect(Collectors.toList());
     }
 
     private Stream getPhotoAttachmentsFromPost(WallPostFull post){
