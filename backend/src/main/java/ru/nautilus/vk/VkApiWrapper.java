@@ -70,20 +70,22 @@ public class VkApiWrapper implements VkApi {
         return response.getItems().stream()
                     .filter(post -> (post.getIsPinned() == null) &&
                                     (getPhotoAttachmentsFromPost(post).count() > 0))
-                    .map(post -> {
-                        WallpostAttachment photoAttachment =
-                                (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
-
-                        return new NewsInfo("",
-                                            DateTime.unixTimeToString(post.getDate()),
-                                            photoAttachment.getPhoto().getPhoto604(),
-                                            post.getText(),
-                                            new String[0]);
-                    })
+                    .map(post -> createNewsInfo(post))
                     .collect(Collectors.toList());
     }
 
     private Stream getPhotoAttachmentsFromPost(WallPostFull post){
         return post.getAttachments().stream().filter(attach -> attach.getType() == WallpostAttachmentType.PHOTO);
+    }
+
+    private NewsInfo createNewsInfo(WallPostFull post){
+        WallpostAttachment photoAttachment =
+                (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
+
+        return new NewsInfo("",
+                DateTime.unixTimeToString(post.getDate()),
+                photoAttachment.getPhoto().getPhoto604(),
+                post.getText(),
+                new String[0]);
     }
 }
