@@ -2,6 +2,7 @@ package ru.nautilus.vk;
 
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
+import ru.nautilus.model.NewsInfo;
 import ru.nautilus.model.SubscribersInfo;
 
 import java.util.List;
@@ -13,5 +14,5 @@ import java.util.List;
 public interface VkApi {
 
     List<SubscribersInfo> getSubscribersList() throws ClientException, ApiException;
-
+    List<NewsInfo> getNews() throws ClientException, ApiException;
 }

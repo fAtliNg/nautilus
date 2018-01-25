@@ -77,12 +77,18 @@ public class ApplicationConfig {
     @Value("${vk.groupId}")
     private int vkGroupId;
 
-    @Value("${vk.accessToken}")
-    private String vkAccessToken;
+    @Value("${vk.groupAccessToken}")
+    private String vkGroupAccessToken;
+
+    @Value("${vk.serviceId}")
+    private int vkServiceId;
+
+    @Value("${vk.serviceAccessToken}")
+    private String vkServiceAccessToken;
 
     @Bean
     public VkApi getVkApi(){
-        return new VkApiWrapper(vkGroupId, vkAccessToken);
+        return new VkApiWrapper(vkGroupId, vkGroupAccessToken, vkServiceId, vkServiceAccessToken);
     }
 
     @Value("${goalstream.scoresTableRequestUrl}")

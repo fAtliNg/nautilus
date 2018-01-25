@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import ru.nautilus.model.NewsInfo;
 import ru.nautilus.vk.VkApi;
 import ru.nautilus.vk.GoalstreamApi;
 import ru.nautilus.model.SubscribersInfo;
@@ -36,6 +37,16 @@ public class MonitoringService {
         }
     }
 
+    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    public void monitorGroupNews(){
+        try{
+            //TODO::make update mechanizm more smarter
+            clearCollection(NewsInfo.class);
+            mongoTemplate.insertAll(vkApi.getNews());
+        } catch (Exception e) {
+            //TODO:: log exception info
+        }
+    }
     @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
     public void monitorScoresTable(){
         //TODO::make update mechanizm more smarter

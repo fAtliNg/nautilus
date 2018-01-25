@@ -2,18 +2,25 @@ package ru.nautilus.vk;
 
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.GroupActor;
+import com.vk.api.sdk.client.actors.ServiceActor;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.groups.responses.GetMembersResponse;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
+import com.vk.api.sdk.objects.wall.WallPostFull;
+import com.vk.api.sdk.objects.wall.WallpostAttachment;
+import com.vk.api.sdk.objects.wall.WallpostAttachmentType;
+import com.vk.api.sdk.objects.wall.responses.GetResponse;
 import com.vk.api.sdk.queries.users.UserField;
 import org.springframework.stereotype.Component;
+import ru.nautilus.model.NewsInfo;
 import ru.nautilus.model.SubscribersInfo;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Denisenko Denis
@@ -21,25 +28,27 @@ import java.util.stream.Collectors;
 @Component
 public class VkApiWrapper implements VkApi {
 
-    private final int groupId;
     private final VkApiClient vkApiClient = new VkApiClient(HttpTransportClient.getInstance());
     private final GroupActor groupActor;
+    private final ServiceActor serviceActor;
 
-    public VkApiWrapper(int groupId, String accessToken){
-        this.groupId = groupId;
-        groupActor = new GroupActor(-groupId, accessToken);
+    private static final int NEWS_COUNT = 5;
+
+    public VkApiWrapper(int groupId, String groupAccessToken, int serviceId, String serviceAccessToken){
+        groupActor = new GroupActor(-groupId, groupAccessToken);
+        serviceActor = new ServiceActor(serviceId, serviceAccessToken);
     }
 
     public List<SubscribersInfo> getSubscribersList() throws ClientException, ApiException {
 
         GetMembersResponse getMembersResponse = vkApiClient.groups().
-                getMembers(groupActor).groupId(String.valueOf(groupId)).execute();
+                getMembers(groupActor).groupId(String.valueOf(groupActor.getId())).execute();
 
         List<String> subscriberIds = getMembersResponse.getItems().stream()
                                             .map(value -> String.valueOf(value))
                                             .collect(Collectors.toList());
 
-        List<UserXtrCounters> members  = vkApiClient.users().get(groupActor)
+        List<UserXtrCounters> members  = vkApiClient.users().get((GroupActor) groupActor)
                                             .userIds(subscriberIds)
                                             .fields(new UserField[]{UserField.PHOTO_50, UserField.SCREEN_NAME})
                                             .execute();
@@ -51,5 +60,22 @@ public class VkApiWrapper implements VkApi {
                         member.getPhoto50(), "http://vk.com/" + member.getScreenName())));
 
         return subscribers;
+    }
+
+    public List<NewsInfo> getNews() throws ClientException, ApiException{
+        GetResponse response = vkApiClient.wall().get(serviceActor)
+                .ownerId(groupActor.getGroupId()).count(NEWS_COUNT).execute();
+
+        return response.getItems().stream()
+                    .filter(post -> (post.getIsPinned() == null) &&
+                                    (getPhotoAttachmentsFromPost(post).count() > 0))
+                    .map(post -> {
+                            WallpostAttachment photoAttachment = (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
+                            return new NewsInfo(post.getDate().toString(), photoAttachment.getPhoto().getPhoto130(), post.getText());
+                    }).collect(Collectors.toList());
+    }
+
+    private Stream getPhotoAttachmentsFromPost(WallPostFull post){
+        return post.getAttachments().stream().filter(attach -> attach.getType() == WallpostAttachmentType.PHOTO);
     }
 }
