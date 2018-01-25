@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 import ru.nautilus.model.NewsInfo;
 import ru.nautilus.model.SubscribersInfo;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -74,8 +76,8 @@ public class VkApiWrapper implements VkApi {
                                 (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
 
                         return new NewsInfo("",
-                                            post.getDate().toString(),
-                                            photoAttachment.getPhoto().getPhoto130(),
+                                            Date.from(Instant.ofEpochSecond(post.getDate())).toString(),
+                                            photoAttachment.getPhoto().getPhoto604(),
                                             post.getText(),
                                             new String[0]);
                     })
