@@ -4,14 +4,16 @@ import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
-import Avatar from 'material-ui/Avatar';
+// import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import ShareIcon from 'material-ui-icons/Share';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-import MoreVertIcon from 'material-ui-icons/MoreVert';
+// import MoreVertIcon from 'material-ui-icons/MoreVert';
 import styles from './styles';
+
+const MAX_LENGTH_SUMMARY = 100;
 
 class Entry extends React.Component {
     state = { expanded: false };
@@ -21,30 +23,29 @@ class Entry extends React.Component {
     };
 
     render() {
-        const { classes, title, image, summary, article, date } = this.props;
+        const { classes, image, summary, article, date } = this.props;
         return (
             <div>
                 <Card className={classes.card}>
                     <CardHeader
-                        avatar={
-                            <Avatar aria-label="Recipe" className={classes.avatar}>
-                                <img
-                                    src={"https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"}
-                                    style={{
-                                        width: 40,
-                                        height: 40
-                                    }}
-                                    alt="avatar"
-                                />
-                            </Avatar>
-                        }
-                        action={
-                            <IconButton color="contrast">
-                                <MoreVertIcon />
-                            </IconButton>
-                        }
-                        title={<div className={classes.header}>{title}</div>}
-                        subheader={<div className={classes.subheader}>{date}</div>}
+                        // avatar={
+                        //     <Avatar aria-label="Recipe" className={classes.avatar}>
+                        //         <img
+                        //             src={"https://pp.userapi.com/c837425/v837425654/4959c/4nWFZ1fwAGw.jpg"}
+                        //             style={{
+                        //                 width: 40,
+                        //                 height: 40
+                        //             }}
+                        //             alt="avatar"
+                        //         />
+                        //     </Avatar>
+                        // }
+                        // action={
+                        //     <IconButton color="contrast">
+                        //         <MoreVertIcon />
+                        //     </IconButton>
+                        // }
+                        title={<div className={classes.header}>{date}</div>}
                     />
                     <CardContent className={classes.content}>
                         <Typography component="p" className={classes.content}>
@@ -55,7 +56,7 @@ class Entry extends React.Component {
                                 }}
                                 alt="image"
                             />
-                            {summary}
+                            {summary.length > MAX_LENGTH_SUMMARY ? summary.substring(0, MAX_LENGTH_SUMMARY)+'...' : summary}
                         </Typography>
                     </CardContent>
                     <CardActions disableActionSpacing >
@@ -66,25 +67,25 @@ class Entry extends React.Component {
                             <ShareIcon />
                         </IconButton>
                         <div className={classes.flexGrow} />
-                        <IconButton
-                            color="contrast"
-                            className={classnames(classes.expand, {
-                                [classes.expandOpen]: this.state.expanded,
-                            })}
-                            onClick={this.handleExpandClick}
-                            aria-expanded={this.state.expanded}
-                            aria-label="Show more"
-                        >
-                            <ExpandMoreIcon />
-                        </IconButton>
+                        {summary.length > MAX_LENGTH_SUMMARY &&
+                            <IconButton
+                                color="contrast"
+                                className={classnames(classes.expand, {
+                                    [classes.expandOpen]: this.state.expanded,
+                                })}
+                                onClick={this.handleExpandClick}
+                                aria-expanded={this.state.expanded}
+                                aria-label="Show more"
+                            >
+                                <ExpandMoreIcon/>
+                            </IconButton>
+                        }
                     </CardActions>
                     <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            {article.map(paragraph => (
-                                <Typography key={paragraph} paragraph className={classes.content}>
-                                    {paragraph}
-                                </Typography>
-                            ))}
+                            <Typography paragraph className={classes.content}>
+                                {summary}
+                            </Typography>
                         </CardContent>
                     </Collapse>
                 </Card>
