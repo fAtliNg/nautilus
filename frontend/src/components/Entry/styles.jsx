@@ -30,6 +30,10 @@ export default function styles(theme) {
             paddingTop: 0,
             paddingBottom: 0,
             color: theme.palette.textColor
+        },
+        img: {
+            overflow: "hidden",
+            maxHeight: 400
         }
     }
 }
