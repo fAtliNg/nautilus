@@ -30,6 +30,8 @@ export default function styles(theme) {
             paddingTop: 0,
             paddingBottom: 0,
             color: theme.palette.textColor
-        }
+        },
+        title: theme.font.title,
+        subheading: theme.font.subheading
     }
 }

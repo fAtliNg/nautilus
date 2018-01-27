@@ -33,7 +33,7 @@ public class VkApiWrapper implements VkApi {
     private final GroupActor groupActor;
     private final ServiceActor serviceActor;
 
-    private static final int NEWS_COUNT = 5;
+    private static final int NEWS_COUNT = 20;
 
     public VkApiWrapper(int groupId, String groupAccessToken, int serviceId, String serviceAccessToken){
         groupActor = new GroupActor(-groupId, groupAccessToken);
