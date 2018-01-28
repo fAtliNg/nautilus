@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.nautilus.controller.*;
 import ru.nautilus.service.DataService;
 import ru.nautilus.service.MonitoringService;
-import ru.nautilus.vk.GoalstreamApi;
-import ru.nautilus.vk.GoalstreamApiWrapper;
+import ru.nautilus.goalstream.GoalstreamApi;
+import ru.nautilus.goalstream.GoalstreamApiWrapper;
 import ru.nautilus.vk.VkApi;
 import ru.nautilus.vk.VkApiWrapper;
 
@@ -94,9 +94,12 @@ public class ApplicationConfig {
     @Value("${goalstream.scoresTableRequestUrl}")
     private String goalstreamScoresTableRequestUrl;
 
+    @Value("${goalstream.playersInfoRequestUrl}")
+    private String goalstreamPlayersInfoRequestUrl;
+
     @Bean
     public GoalstreamApi getGoalstreamApi(){
-        return new GoalstreamApiWrapper(goalstreamScoresTableRequestUrl);
+        return new GoalstreamApiWrapper(goalstreamScoresTableRequestUrl, goalstreamPlayersInfoRequestUrl);
     }
 
     @Bean

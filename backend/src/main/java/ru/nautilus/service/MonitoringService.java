@@ -6,10 +6,12 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import ru.nautilus.model.NewsInfo;
+import ru.nautilus.model.PlayersInfo;
 import ru.nautilus.vk.VkApi;
-import ru.nautilus.vk.GoalstreamApi;
+import ru.nautilus.goalstream.GoalstreamApi;
 import ru.nautilus.model.SubscribersInfo;
 import ru.nautilus.model.ScoresTableInfo;
+
 
 /**
  * @author Denisenko Denis
@@ -47,11 +49,19 @@ public class MonitoringService {
             //TODO:: log exception info
         }
     }
+
     @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
     public void monitorScoresTable(){
         //TODO::make update mechanizm more smarter
         clearCollection(ScoresTableInfo.class);
         mongoTemplate.insertAll(goalstreamApi.getScoreTableInfo());
+    }
+
+    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    public void monitorPlayersInfo(){
+        //TODO::make update mechanizm more smarter
+        clearCollection(PlayersInfo.class);
+        mongoTemplate.insertAll(goalstreamApi.getPlayersInfo());
     }
 
     private void clearCollection(Class entityClass){

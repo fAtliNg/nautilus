@@ -17,4 +17,6 @@ public class PlayersInfo {
     String role;
     int yellowCards;
     int redCards;
+    int goals;
+    int assists;
 }
