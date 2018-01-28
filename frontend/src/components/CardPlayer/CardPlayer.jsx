@@ -33,44 +33,44 @@ class CardPlayer extends Component {
                                             {data.fullName}
                                         </div>
                                     </Grid>
+                                    <Grid item style={{padding: 0, paddingLeft: 8}}>
+                                        <div className={classes.subheading}>
+                                            {data.role}
+                                        </div>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} style={{paddingLeft: 16, paddingTop: 0}}>
                         <Grid container direction={"row"} className={classes.info}>
-                            <Grid item xs={6} style={{padding: 0}}>
+                            <Grid item xs={12} style={{padding: 0}}>
                                 <div className={classes.subheading}>
-                                    Номер: {data.number}
+                                    Матчи: {data.matches}
                                 </div>
                             </Grid>
+                        </Grid>
+                        <Grid container direction={"row"} className={classes.info}>
+                            <Grid item xs={6} style={{padding: 0}}>
+                                <div className={classes.subheading}>
+                                    Голы: {data.goals}
+                                </div>
+                            </Grid>
+                            <Grid item xs={6} style={{padding: 0}}>
+                                <div className={classes.subheading}>
+                                    Пасы: {data.assists}
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container direction={"row"} className={classes.info}>
                             <Grid item xs={6} style={{padding: 0}}>
                                 <div className={classes.subheading}>
                                     Желтые: {data.yellowCards}
                                 </div>
                             </Grid>
-                        </Grid>
-                        <Grid container direction={"row"} className={classes.info}>
-                            <Grid item xs={6} style={{padding: 0}}>
-                                <div className={classes.subheading}>
-                                    Красные: {data.redCards}
-                                </div>
-                            </Grid>
-                            <Grid item xs={6} style={{padding: 0}}>
-                                <div className={classes.subheading}>
-                                    Игр: 3
-                                </div>
-                            </Grid>
-                        </Grid>
-                        <Grid container direction={"row"} className={classes.info}>
-                            <Grid item xs={6} style={{padding: 0}}>
-                                <div className={classes.subheading}>
-                                    Голов: 5
-                                </div>
-                            </Grid>
                             <Grid item xs={6} style={{padding: 0, paddingBottom: 8}}>
                                 <div className={classes.subheading}>
-                                    Передачи: 0
+                                    Красные: {data.redCards}
                                 </div>
                             </Grid>
                         </Grid>
