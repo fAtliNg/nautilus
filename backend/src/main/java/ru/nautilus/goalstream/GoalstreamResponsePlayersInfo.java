@@ -14,7 +14,7 @@ enum GoalstreamResponsePlayersInfo {
     PHOTO{
         @Override
         String getValue(Object rawData) {
-            return (String) ((HashMap)rawData).get("photoUrl");
+            return ((String) ((HashMap)rawData).get("photoUrl")).replace("img_c_26x26", "img_c_200x200");
         }
     },
 

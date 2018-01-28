@@ -6,3 +6,4 @@
 .idea
 /frontend/build
 /*.log
+/backend/config.properties
