@@ -82,10 +82,8 @@ public class VkApiWrapper implements VkApi {
         WallpostAttachment photoAttachment =
                 (WallpostAttachment) getPhotoAttachmentsFromPost(post).findAny().get();
 
-        return new NewsInfo("",
-                DateTime.unixTimeToString(post.getDate()),
-                photoAttachment.getPhoto().getPhoto604(),
-                post.getText(),
-                new String[0]);
+        return new NewsInfo(    DateTime.unixTimeToDate(post.getDate()),
+                                photoAttachment.getPhoto().getPhoto604(),
+                                post.getText());
     }
 }

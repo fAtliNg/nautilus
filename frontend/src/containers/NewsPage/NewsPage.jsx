@@ -22,11 +22,9 @@ class NewsPage extends Component {
                     newsPage.entries && Array.isArray(newsPage.entries) &&
                     newsPage.entries.map(entry => (
                         <Entry
-                            key={entry.title}
-                            title={entry.title}
+                            key={entry.text}
                             image={entry.image}
-                            summary={entry.summary}
-                            article={entry.article}
+                            text={entry.text}
                             date={entry.date}
                         />
                     ))

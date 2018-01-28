@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @Document(collection="news")
 public class NewsInfo {
-    String title;
-    String date;
+    Date date;
     String image;
-    String summary;
-    String[] article;
+    String text;
 }
