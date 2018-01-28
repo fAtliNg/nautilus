@@ -54,6 +54,7 @@ public class GoalstreamApiWrapper implements GoalstreamApi {
                                         GoalstreamResponsePlayersInfo.AGE.getValue(item),
                                         GoalstreamResponsePlayersInfo.NUMBER.getValue(item),
                                         GoalstreamResponsePlayersInfo.POSITION.getValue(item),
+                                        GoalstreamResponsePlayersInfo.MATHES.getValue(item),
                                         GoalstreamResponsePlayersInfo.YELLOW.getValue(item),
                                         GoalstreamResponsePlayersInfo.RED.getValue(item),
                                         GoalstreamResponsePlayersInfo.GOALS.getValue(item),

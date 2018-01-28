@@ -39,6 +39,13 @@ enum GoalstreamResponsePlayersInfo {
         }
     },
 
+    MATHES{
+        @Override
+        Integer getValue(Object rawData) {
+            return (int) ((HashMap)rawData).get("matches");
+        }
+    },
+
     YELLOW{
         @Override
         Integer getValue(Object rawData) {

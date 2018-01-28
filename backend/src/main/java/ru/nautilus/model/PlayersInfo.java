@@ -15,6 +15,7 @@ public class PlayersInfo {
     int age;
     int number;
     String role;
+    int matches;
     int yellowCards;
     int redCards;
     int goals;
