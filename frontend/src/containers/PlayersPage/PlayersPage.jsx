@@ -20,10 +20,12 @@ class PlayersPage extends Component {
         return (
             <Pending pending={pending}>
                 <Grid container>
-                    {players.map(player =>
-                        <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                            <CardPlayer key={player.id} data={player}/>
-                        </Grid>
+                    {players
+                        .sort((l, r) => (l.number - r.number))
+                        .map(player =>
+                            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+                                <CardPlayer key={player.id} data={player}/>
+                            </Grid>
                     )}
                 </Grid>
             </Pending>

@@ -20,15 +20,15 @@ class CardPlayer extends Component {
                                 />
                             </Grid>
                             <Grid item xs={8}>
-                                <Grid container direction="column">
-                                    <Grid item>
+                                <Grid container>
+                                    <Grid item xs={2}>
                                         <div className={classes.number}>
                                             <div className={classes.title}>
                                                 {data.number}
                                             </div>
                                         </div>
                                     </Grid>
-                                    <Grid item style={{padding: 0, paddingLeft: 8}}>
+                                    <Grid item xs={10} style={{paddingTop: 24, paddingLeft: 8}}>
                                         <div className={classes.title}>
                                             {data.fullName}
                                         </div>
