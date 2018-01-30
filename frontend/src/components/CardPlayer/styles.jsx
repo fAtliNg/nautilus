@@ -25,6 +25,10 @@ export default function styles(theme) {
             height: "100%",
         },
         title: theme.font.title,
-        subheading: theme.font.subheading
+        subheading: theme.font.subheading,
+        role: {
+            color: theme.palette.textColor,
+            fontStyle: "italic",
+        }
     }
 };

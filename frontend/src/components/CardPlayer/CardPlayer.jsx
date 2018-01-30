@@ -34,7 +34,7 @@ class CardPlayer extends Component {
                                         </div>
                                     </Grid>
                                     <Grid item style={{padding: 0, paddingLeft: 8}}>
-                                        <div className={classes.subheading}>
+                                        <div className={classes.role}>
                                             {data.role}
                                         </div>
                                     </Grid>
