@@ -35,7 +35,19 @@ enum GoalstreamResponsePlayersInfo {
     POSITION{
         @Override
         String getValue(Object rawData) {
-            return Info.POSITION.getValue((String) ((HashMap)rawData).get("info"));
+            return tryTranslateToRussian(Info.POSITION.getValue((String) ((HashMap)rawData).get("info")));
+        }
+
+        private String tryTranslateToRussian(String value){
+            if(value.equals("forward"))
+                return "нападающий";
+            if(value.equals("goalkeeper"))
+                return "вратарь";
+            if(value.equals("defender"))
+                return "защитник";
+            if(value.equals("versatile"))
+                return "универсал";
+            return value;
         }
     },
 
