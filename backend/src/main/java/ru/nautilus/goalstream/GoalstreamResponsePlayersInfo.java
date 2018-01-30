@@ -39,14 +39,9 @@ enum GoalstreamResponsePlayersInfo {
         }
 
         private String tryTranslateToRussian(String value){
-            if(value.equals("forward"))
-                return "нападающий";
-            if(value.equals("goalkeeper"))
-                return "вратарь";
-            if(value.equals("defender"))
-                return "защитник";
-            if(value.equals("versatile"))
-                return "универсал";
+            final Position position = Position.resolveByEnCode(value);
+            if(position != null)
+                return position.ruCode;
             return value;
         }
     },
@@ -109,4 +104,31 @@ enum GoalstreamResponsePlayersInfo {
             return rawData.split(",");
         }
     }
+
+    enum Position{
+
+        GOALKEEPER("вратарь", "goalkeeper"),
+        DEFENDER("защитник", "defender"),
+        MIDFIELDER("полузащитник","midfielder"),
+        FORWARD("нападающий","forward"),
+        VERSATILE("универсал","versatile");
+
+
+        public static Position resolveByEnCode(String enCode){
+            for (Position position : values()) {
+                if(position.enCode.equalsIgnoreCase(enCode.trim()))
+                    return position;
+            }
+            return null;
+        }
+
+        private final String ruCode;
+        private final String enCode;
+
+        Position(String ruCode, String enCode) {
+            this.ruCode = ruCode;
+            this.enCode = enCode;
+        }
+    }
+
 }
