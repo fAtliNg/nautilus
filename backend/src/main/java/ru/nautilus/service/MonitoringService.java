@@ -28,7 +28,7 @@ public class MonitoringService {
     @Autowired
     private GoalstreamApi goalstreamApi;
 
-    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    @Scheduled(fixedDelay = 60 * 60 * 1000)//once per hour
     public void monitorGroupMembers(){
         try{
             //TODO::make update mechanizm more smarter
@@ -39,7 +39,7 @@ public class MonitoringService {
         }
     }
 
-    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    @Scheduled(fixedDelay = 60 * 60 * 1000)//once per hour
     public void monitorGroupNews(){
         try{
             //TODO::make update mechanizm more smarter
@@ -50,14 +50,14 @@ public class MonitoringService {
         }
     }
 
-    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    @Scheduled(fixedDelay = 60 * 60 * 1000)//once per hour
     public void monitorScoresTable(){
         //TODO::make update mechanizm more smarter
         clearCollection(ScoresTableInfo.class);
         mongoTemplate.insertAll(goalstreamApi.getScoreTableInfo());
     }
 
-    @Scheduled(fixedDelay = 24 * 60 * 60 * 1000)//once per day
+    @Scheduled(fixedDelay = 60 * 60 * 1000)//once per hour
     public void monitorPlayersInfo(){
         //TODO::make update mechanizm more smarter
         clearCollection(PlayersInfo.class);
