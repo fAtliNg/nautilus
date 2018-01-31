@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Configuration status='warn'>
     <Properties>
-        <Property name='basePath'>/var/lib/nautilus/log</Property>
+        <Property name='basePath'>/var/log/nautilus</Property>
     </Properties>
 
     <Appenders>
