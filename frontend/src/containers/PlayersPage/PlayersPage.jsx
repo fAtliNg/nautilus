@@ -29,8 +29,8 @@ class PlayersPage extends Component {
             if (roles[l.role] > roles[r.role]) result = -1;
             if (roles[l.role] < roles[r.role]) result = 1;
             if (roles[l.role] === roles[r.role]) {
-                if (l.number > r.number) return 1;
-                if (l.number < r.number) return -1;
+                if (l.number > r.number) result = 1;
+                if (l.number < r.number) result = -1;
             }
             return result;
         });
