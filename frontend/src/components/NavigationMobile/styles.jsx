@@ -9,6 +9,7 @@ export default function styles(theme) {
         menuButton: {
             marginLeft: -12,
             marginRight: 20,
+            color: theme.palette.textColor
         },
         drawer: {
             margin: 8
