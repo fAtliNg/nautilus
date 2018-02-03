@@ -32,16 +32,16 @@ public class DataService {
         return mongoTemplate.findAll(PlayersInfo.class);
     }
 
-    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreviewInfo(){
-        return mongoTemplate.findAll(PhotoGalleryPreviewInfo.class);
+    public List<PhotoAlbumInfo> getPhotoAlbumInfo(){
+        return mongoTemplate.findAll(PhotoAlbumInfo.class);
     }
 
     public List<VideoGalleryPreviewInfo> getVideoGalleryPreviewInfo(){
         return mongoTemplate.findAll(VideoGalleryPreviewInfo.class);
     }
 
-    public List<PhotoAlbumInfo> getPhotoAlbumInfo(int id){
-        return mongoTemplate.find(query(where("albumid").is(id)), PhotoAlbumInfo.class);
+    public List<PhotoInfo> getPhotoByAlbum(int id){
+        return mongoTemplate.find(query(where("albumid").is(id)), PhotoInfo.class);
     }
 
     public List<VideoAlbumInfo> getVideoAlbumInfo(int id){

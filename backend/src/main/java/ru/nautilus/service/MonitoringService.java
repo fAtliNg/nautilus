@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import ru.nautilus.model.NewsInfo;
-import ru.nautilus.model.PlayersInfo;
+import ru.nautilus.model.*;
 import ru.nautilus.vk.VkApi;
 import ru.nautilus.goalstream.GoalstreamApi;
-import ru.nautilus.model.SubscribersInfo;
-import ru.nautilus.model.ScoresTableInfo;
+
+import java.util.List;
 
 
 /**
@@ -82,6 +81,33 @@ public class MonitoringService {
         mongoTemplate.insertAll(goalstreamApi.getPlayersInfo());
 
         log.info("Monitoring players finish successfull");
+    }
+
+    @Scheduled(fixedDelay = 60 * 60 * 1000)//once per hour
+    public void monitorMediaContent(){
+        try{
+            log.info("Monitoring media content start..");
+
+            //TODO::make update mechanizm more smarter
+            clearCollection(PhotoAlbumInfo.class);
+            clearCollection(PhotoInfo.class);
+
+            List<PhotoAlbumInfo> albumsInfo = vkApi.getPhotoGalleryInfo();
+            mongoTemplate.insertAll(albumsInfo);
+
+            albumsInfo.forEach(album ->{
+                try {
+                    mongoTemplate.insertAll(vkApi.getPhotoAlbumInfo(String.valueOf(album.getId())));
+                } catch (Exception e) {
+                    log.error(e, e);
+                }
+            });
+            mongoTemplate.insertAll(vkApi.getSubscribersList());
+
+            log.info("Monitoring media content finish successfull");
+        } catch (Exception e) {
+            log.error(e, e);
+        }
     }
 
     private void clearCollection(Class entityClass){

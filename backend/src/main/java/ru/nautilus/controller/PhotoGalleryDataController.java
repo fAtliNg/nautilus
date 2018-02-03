@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import ru.nautilus.model.PhotoInfo;
 import ru.nautilus.model.PhotoAlbumInfo;
-import ru.nautilus.model.PhotoGalleryPreviewInfo;
 import ru.nautilus.service.DataService;
 
 import java.util.List;
@@ -22,13 +22,13 @@ public class PhotoGalleryDataController {
 
     @RequestMapping(value = "/photo", method = GET)
     @ResponseBody
-    public List<PhotoGalleryPreviewInfo> getPhotoGalleryPreview() {
-        return Service.getPhotoGalleryPreviewInfo();
+    public List<PhotoAlbumInfo> getPhotoGalleryPreview() {
+        return Service.getPhotoAlbumInfo();
     }
 
     @RequestMapping(value = "/photo/{id}", method = GET)
     @ResponseBody
-    public List<PhotoAlbumInfo> getPhotoAlbum(@PathVariable("id") int id) {
-        return Service.getPhotoAlbumInfo(id);
+    public List<PhotoInfo> getPhotoAlbum(@PathVariable("id") int id) {
+        return Service.getPhotoByAlbum(id);
     }
 }

@@ -7,6 +7,7 @@ import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.groups.responses.GetMembersResponse;
+import com.vk.api.sdk.objects.photos.responses.GetAlbumsResponse;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.objects.wall.WallPostFull;
 import com.vk.api.sdk.objects.wall.WallpostAttachment;
@@ -15,6 +16,8 @@ import com.vk.api.sdk.objects.wall.responses.GetResponse;
 import com.vk.api.sdk.queries.users.UserField;
 import org.springframework.stereotype.Component;
 import ru.nautilus.model.NewsInfo;
+import ru.nautilus.model.PhotoInfo;
+import ru.nautilus.model.PhotoAlbumInfo;
 import ru.nautilus.model.SubscribersInfo;
 import ru.nautilus.util.DateTime;
 
@@ -85,5 +88,30 @@ public class VkApiWrapper implements VkApi {
         return new NewsInfo(    DateTime.unixTimeToDate(post.getDate()),
                                 photoAttachment.getPhoto().getPhoto604(),
                                 post.getText());
+    }
+
+    public List<PhotoAlbumInfo> getPhotoGalleryInfo() throws ClientException, ApiException{
+        GetAlbumsResponse response = vkApiClient.photos().
+                getAlbums(serviceActor).ownerId(groupActor.getGroupId()).execute();
+
+        return response.getItems().stream()
+                .map(item -> new PhotoAlbumInfo(
+                                    item.getId(), item.getThumbSrc(),
+                                    item.getDescription(), item.getTitle()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PhotoInfo> getPhotoAlbumInfo(String albumId) throws ClientException, ApiException {
+
+    return vkApiClient.photos()
+                .get(serviceActor)
+                .ownerId(groupActor.getGroupId())
+                .albumId(albumId).execute()
+                        .getItems().stream()
+                        .map(photo -> new PhotoInfo(
+                                            photo.getAlbumId(),
+                                            photo.getPhoto1280(),
+                                            photo.getPhoto604()))
+                        .collect(Collectors.toList());
     }
 }
