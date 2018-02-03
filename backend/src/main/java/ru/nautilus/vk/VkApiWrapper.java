@@ -51,25 +51,25 @@ public class VkApiWrapper implements VkApi {
 
     public List<SubscribersInfo> getSubscribersList() throws ClientException, ApiException {
 
-        GetMembersResponse getMembersResponse = vkApiClient.groups().
-                getMembers(groupActor).groupId(String.valueOf(groupActor.getId())).execute();
+        List<String> subscriberIds =
+                vkApiClient.groups()
+                    .getMembers(groupActor)
+                    .groupId(String.valueOf(groupActor.getId()))
+                     .execute().getItems().stream()
+                        .map(value -> String.valueOf(value))
+                        .collect(Collectors.toList());
 
-        List<String> subscriberIds = getMembersResponse.getItems().stream()
-                                            .map(value -> String.valueOf(value))
-                                            .collect(Collectors.toList());
+        log.info("Members count : " + subscriberIds.size());
 
-        List<UserXtrCounters> members  = vkApiClient.users().get(groupActor)
-                                            .userIds(subscriberIds)
-                                            .fields(new UserField[]{UserField.PHOTO_50, UserField.SCREEN_NAME})
-                                            .execute();
-
-        LinkedList<SubscribersInfo> subscribers = new LinkedList<>();
-
-        members.forEach(member -> subscribers.add(
-                new SubscribersInfo(member.getFirstName(),
-                        member.getPhoto50(), "http://vk.com/" + member.getScreenName())));
-
-        return subscribers;
+        return vkApiClient.users().get(groupActor)
+                    .userIds(subscriberIds)
+                    .fields(new UserField[]{UserField.PHOTO_50, UserField.SCREEN_NAME})
+                    .execute().stream()
+                    .map(member ->  new SubscribersInfo(
+                                        member.getFirstName(),
+                                        member.getPhoto50(),
+                                        "http://vk.com/" + member.getScreenName()))
+                    .collect(Collectors.toList());
     }
 
     public List<NewsInfo> getNews() throws ClientException, ApiException{
