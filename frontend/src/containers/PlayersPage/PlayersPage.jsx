@@ -15,16 +15,36 @@ class PlayersPage extends Component {
         this.props.clearPlayersPageData();
     }
 
+    getPlayers = () => {
+        const {players} = this.props;
+        const roles = {
+            'вратарь': 4,
+            'защитник': 3,
+            'полузащитник': 2,
+            'нападающий': 1,
+            'универсал': 0
+        };
+        return players.sort((l, r) => {
+            let result = 0;
+            if (roles[l.role] > roles[r.role]) result = -1;
+            if (roles[l.role] < roles[r.role]) result = 1;
+            if (roles[l.role] === roles[r.role]) {
+                if (l.number > r.number) result = 1;
+                if (l.number < r.number) result = -1;
+            }
+            return result;
+        });
+    };
+
     render() {
-        const {players, pending} = this.props;
+        const {pending} = this.props;
         return (
             <Pending pending={pending}>
                 <Grid container>
-                    {players
-                        .sort((l, r) => (l.number - r.number))
+                    {this.getPlayers()
                         .map(player =>
-                            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-                                <CardPlayer key={player.id} data={player}/>
+                            <Grid item xs={12} sm={12} md={12} lg={6} xl={6} key={player.number}>
+                                <CardPlayer data={player}/>
                             </Grid>
                     )}
                 </Grid>

@@ -9,12 +9,12 @@ import vkReducer from './vkReducer'
 import aboutClubReducer from './aboutClubReducer'
 
 export default combineReducers({
-    newsPage: newsReducer,
-    playersPage: playersReducer,
-    photoPage: photoReducer,
-    videoPage: videoReducer,
-    scoresTable: scoresTableReducer,
-    events: eventsReducer,
-    vk: vkReducer,
-    aboutPage: aboutClubReducer
-});
+  newsPage: newsReducer,
+  playersPage: playersReducer,
+  photoPage: photoReducer,
+  videoPage: videoReducer,
+  scoresTable: scoresTableReducer,
+  events: eventsReducer,
+  vk: vkReducer,
+  aboutPage: aboutClubReducer
+})
