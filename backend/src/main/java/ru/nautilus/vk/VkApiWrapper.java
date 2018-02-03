@@ -105,8 +105,8 @@ public class VkApiWrapper implements VkApi {
                 .map(item -> new PhotoAlbumInfo(
                                     item.getId(),
                                     getThumbById(item.getId(), item.getThumbId()),
-                                    item.getDescription(),
-                                    item.getTitle()))
+                                    item.getTitle(),
+                                    item.getDescription()))
                 .collect(Collectors.toList());
     }
 
