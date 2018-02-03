@@ -7,6 +7,7 @@ import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.groups.responses.GetMembersResponse;
+import com.vk.api.sdk.objects.photos.Photo;
 import com.vk.api.sdk.objects.photos.responses.GetAlbumsResponse;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.objects.wall.WallPostFull;
@@ -14,6 +15,8 @@ import com.vk.api.sdk.objects.wall.WallpostAttachment;
 import com.vk.api.sdk.objects.wall.WallpostAttachmentType;
 import com.vk.api.sdk.objects.wall.responses.GetResponse;
 import com.vk.api.sdk.queries.users.UserField;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import ru.nautilus.model.NewsInfo;
 import ru.nautilus.model.PhotoInfo;
@@ -23,6 +26,7 @@ import ru.nautilus.util.DateTime;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,6 +35,8 @@ import java.util.stream.Stream;
  */
 @Component
 public class VkApiWrapper implements VkApi {
+
+    private static final Logger log = LogManager.getLogger(VkApiWrapper.class);
 
     private final VkApiClient vkApiClient = new VkApiClient(HttpTransportClient.getInstance());
     private final GroupActor groupActor;
@@ -95,15 +101,37 @@ public class VkApiWrapper implements VkApi {
                 getAlbums(serviceActor).ownerId(groupActor.getGroupId()).execute();
 
         return response.getItems().stream()
+                .filter(item -> item.getSize() > 0)
                 .map(item -> new PhotoAlbumInfo(
-                                    item.getId(), item.getThumbSrc(),
-                                    item.getDescription(), item.getTitle()))
+                                    item.getId(),
+                                    getThumbById(item.getId(), item.getThumbId()),
+                                    item.getDescription(),
+                                    item.getTitle()))
                 .collect(Collectors.toList());
+    }
+
+    private String getThumbById(Integer albumId, Integer thumbId){
+        Optional<Photo> thumb = null;
+        try {
+            thumb = vkApiClient.photos()
+                        .get(serviceActor)
+                        .ownerId(groupActor.getGroupId())
+                        .albumId(String.valueOf(albumId)).execute()
+                        .getItems().stream()
+                            .filter(item -> item.getId().equals(thumbId))
+                            .findAny();
+        } catch (Exception e) {
+            log.error(e, e);
+        }
+
+        if(thumb.isPresent())
+            return thumb.get().getPhoto604();
+        return "";
     }
 
     public List<PhotoInfo> getPhotoAlbumInfo(String albumId) throws ClientException, ApiException {
 
-    return vkApiClient.photos()
+        return vkApiClient.photos()
                 .get(serviceActor)
                 .ownerId(groupActor.getGroupId())
                 .albumId(albumId).execute()
