@@ -1,130 +1,127 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
-import "./styles.css";
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import ImageGallery from 'react-image-gallery'
+import 'react-image-gallery/styles/css/image-gallery.css'
+import './styles.css'
 
-import {fetchVideosData, clearVideosData} from '../../actions/actions';
+import {fetchVideosData, clearVideosData} from '../../actions/actions'
 
 class GalleryPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showFullscreenButton: true,
-            showGalleryFullscreenButton: true,
-            showPlayButton: true,
-            showGalleryPlayButton: true,
-            showVideo: {},
-        };
+  constructor (props) {
+    super(props)
+    this.state = {
+      showFullscreenButton: true,
+      showGalleryFullscreenButton: true,
+      showPlayButton: true,
+      showGalleryPlayButton: true,
+      showVideo: {}
+    }
+  }
+
+  componentWillMount () {
+    this.props.fetchVideosData(this.props.match.params.id)
+  }
+
+  componentWillUnmount () {
+    this.props.clearVideosData()
+  }
+
+  onSlide (index) {
+    this.resetVideo()
+  }
+
+  resetVideo () {
+    this.setState({showVideo: {}})
+
+    if (this.state.showPlayButton) {
+      this.setState({showGalleryPlayButton: true})
     }
 
-    componentWillMount() {
-        this.props.fetchVideosData(this.props.match.params.id);
+    if (this.state.showFullscreenButton) {
+      this.setState({showGalleryFullscreenButton: true})
     }
+  }
 
-    componentWillUnmount() {
-        this.props.clearVideosData();
+  toggleShowVideo (url) {
+    this.state.showVideo[url] = !this.state.showVideo[url]
+    this.setState({
+      showVideo: this.state.showVideo
+    })
+
+    if (this.state.showVideo[url]) {
+      if (this.state.showPlayButton) {
+        this.setState({showGalleryPlayButton: false})
+      }
+
+      if (this.state.showFullscreenButton) {
+        this.setState({showGalleryFullscreenButton: false})
+      }
     }
+  }
 
-    onSlide(index) {
-        this.resetVideo();
-    }
-
-    resetVideo() {
-        this.setState({showVideo: {}});
-
-        if (this.state.showPlayButton) {
-            this.setState({showGalleryPlayButton: true});
-        }
-
-        if (this.state.showFullscreenButton) {
-            this.setState({showGalleryFullscreenButton: true});
-        }
-    }
-
-    toggleShowVideo(url) {
-        this.state.showVideo[url] = !Boolean(this.state.showVideo[url]);
-        this.setState({
-            showVideo: this.state.showVideo
-        });
-
-        if (this.state.showVideo[url]) {
-            if (this.state.showPlayButton) {
-                this.setState({showGalleryPlayButton: false});
-            }
-
-            if (this.state.showFullscreenButton) {
-                this.setState({showGalleryFullscreenButton: false});
-            }
-        }
-    }
-
-    renderVideo = item => {
-        return <div className='image-gallery-image'>
-            {
-                this.state.showVideo[item.embedUrl] ?
-                    <div className='video-wrapper'>
-                        <a
-                            className='close-video'
-                            onClick={() => {
-                                this.toggleShowVideo(item.embedUrl)
-                            }}
-                        >
-                        </a>
-                        <iframe
-                            src={item.embedUrl}
-                            frameBorder='0'
-                            allowFullScreen
-                        >
-                        </iframe>
+  renderVideo = item => {
+    return <div className='image-gallery-image'>
+      {
+                this.state.showVideo[item.embedUrl]
+                    ? <div className='video-wrapper'>
+                      <a
+                        className='close-video'
+                        onClick={() => {
+                          this.toggleShowVideo(item.embedUrl)
+                        }}
+                         />
+                      <iframe
+                        src={item.embedUrl}
+                        frameBorder='0'
+                        allowFullScreen
+                         />
                     </div>
-                    :
-                    <a onClick={() => {
-                        this.toggleShowVideo(item.embedUrl)
+                    : <a onClick={() => {
+                      this.toggleShowVideo(item.embedUrl)
                     }}>
-                        <div className='play-button'></div>
-                        <img src={item.original}/>
-                        {
+                      <div className='play-button' />
+                      <img src={item.original} />
+                      {
                             item.description &&
                             <span
-                                className='image-gallery-description'
-                                style={{right: '0', left: 'initial'}}
+                              className='image-gallery-description'
+                              style={{right: '0', left: 'initial'}}
                             >
                                 {item.description}
                             </span>
                         }
                     </a>
             }
-        </div>;
-    }
+    </div>
+  }
 
-    render() {
-        const {videos} = this.props;
-        return (
-            <div className="app">
-            <ImageGallery
-                items={videos}
-                disableSwipe={true}
-                showBullets={false}
-                showFullscreenButton={this.state.showFullscreenButton && this.state.showGalleryFullscreenButton}
-                showPlayButton={false}
-                showThumbnails={true}
-                showIndex={false}
-                showNav={true}
-                onSlide={this.onSlide.bind(this)}
-                renderItem={this.renderVideo.bind(this)}
+  render () {
+    const {videos} = this.props
+    return (
+      <div className='app'>
+        <ImageGallery
+          items={videos}
+          disableSwipe
+          showBullets={false}
+          showFullscreenButton={this.state.showFullscreenButton && this.state.showGalleryFullscreenButton}
+          showPlayButton={false}
+          showThumbnails
+          showIndex={false}
+          showNav
+          onSlide={this.onSlide.bind(this)}
+          renderItem={this.renderVideo.bind(this)}
             />
-            </div>
-        );
-    }
+      </div>
+    )
+  }
 }
 
 export default connect(
     state => ({
-        videos: state.videoPage.videos
+      videos: state.videoPage.videos
     }),
     dispatch => ({
-        fetchVideosData: id => dispatch(fetchVideosData(id)),
-        clearVideosData: () => dispatch(clearVideosData())
+      fetchVideosData: id => dispatch(fetchVideosData(id)),
+      clearVideosData: () => dispatch(clearVideosData())
     })
-)(GalleryPage);
+)(GalleryPage)

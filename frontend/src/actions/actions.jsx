@@ -16,7 +16,7 @@ export const fetchVkData = () => ({
   type: 'FETCH.VK.DATA'
 })
 
-export const setVkData = payload => ({
+export const setVkData = (payload) => ({
   type: 'SET.VK.DATA',
   payload: payload
 })
@@ -26,8 +26,10 @@ export const clearVkData = payload => ({
 })
 
 // NEWS PAGE
-export const fetchNewsPageEntriesData = () => ({
-  type: 'FETCH.NEWSPAGE.ENTRIES.DATA'
+export const fetchNewsPageEntriesData = (limit=3, offset=0) => ({
+  type: 'FETCH.NEWSPAGE.ENTRIES.DATA',
+  limit,
+  offset
 })
 
 export const setNewsPageEntriesData = payload => ({
@@ -121,7 +123,7 @@ export const setEventsData = payload => ({
 
 export const clearEventsData = payload => ({
   type: '' +
-    'CLEAR.EVENTS.DATA'
+  'CLEAR.EVENTS.DATA'
 })
 
 export const setEventFull = payload => ({

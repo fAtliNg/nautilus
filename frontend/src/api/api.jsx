@@ -16,8 +16,9 @@ export const fetchVkData = () => {
 }
 
 // News Page
-export const fetchEntries = () => {
-  return axiosInstance.get('news')
+export const fetchEntries = (limit, offset) => {
+  // return axiosInstance.get('news')
+  return axiosInstance.get(`news?limit=${limit}&offset=${offset}`)
 }
 
 // Players Page

@@ -34,9 +34,9 @@ export function * fetchVkData () {
 }
 
 // NEWS PAGE
-export function * fetchNewsPageEntriesData () {
+export function * fetchNewsPageEntriesData (action) {
   try {
-    const response = yield call(API.fetchEntries)
+    const response = yield call(API.fetchEntries, action.limit, action.offset)
     yield put(setNewsPageEntriesData(response.data))
   } catch (e) {
     console.log(e)
