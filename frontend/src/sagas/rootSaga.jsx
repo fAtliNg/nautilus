@@ -14,6 +14,8 @@ import {
 } from '../actions/actions'
 import * as API from '../api/api'
 
+var moment = require('moment')
+
 // COMMON
 export function * fetchCommonScoresTable () {
   try {
@@ -95,8 +97,14 @@ export function * fetchVideosData (action) {
 export function * fetchEventsData () {
   try {
     const response = yield call(API.fetchEvents)
-    yield put(setEventsData(response.data))
-    yield put(setEventFull(response.data.reduce((l, e) => e.date > l.date ? e : l)))
+    let sort = response.data.sort((l, r) => {
+      let result = 0;
+      if (moment(l.date, 'DD.MM.YYYY') < moment(r.date, 'DD.MM.YYYY')) return 1;
+      if (moment(l.date, 'DD.MM.YYYY') > moment(r.date, 'DD.MM.YYYY')) return -1;
+      return result;
+    });
+    yield put(setEventsData(sort.slice(1, 3)))
+    yield put(setEventFull(sort[0]))
   } catch (e) {
     console.log(e)
   }

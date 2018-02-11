@@ -5,6 +5,8 @@ import Grid from 'material-ui/Grid'
 import {withStyles} from 'material-ui/styles/index'
 import styles from './styles'
 
+var moment = require('moment')
+
 class EventShort extends Component {
   render () {
     const { classes, data } = this.props
@@ -24,7 +26,7 @@ class EventShort extends Component {
             </Grid>
             <Grid item xs={2} style={{textAlign: 'right'}}>
               <div className={classes.subheading}>
-                {data.date}
+                {moment(data.date, 'DD.MM.YYYY').format('DD.MM')}
               </div>
             </Grid>
           </Grid>
