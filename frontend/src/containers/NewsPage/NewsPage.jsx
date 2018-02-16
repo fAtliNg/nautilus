@@ -70,7 +70,7 @@ class NewsPage extends Component {
           date={entry.date}
         />
         ))}
-        <div style={{textAlign: "right"}}>
+        {false && <div style={{textAlign: "right"}}>
           <Pagination
             total={25}
             defaultPageSize={3}
@@ -78,7 +78,7 @@ class NewsPage extends Component {
             itemRender={this.renderItemPagination}
             onChange={this.onChangePage}
           />
-        </div>
+        </div>}
       </div>
     )
   }
