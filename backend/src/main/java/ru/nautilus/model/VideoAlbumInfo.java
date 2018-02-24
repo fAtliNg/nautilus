@@ -14,4 +14,5 @@ public class VideoAlbumInfo {
     String original;
     String thumbnail;
     String embedUrl;
+    String description;
 }
