@@ -13,7 +13,14 @@ class AboutInfo extends React.Component {
         </div>
       </Paper>
       <Paper>
-        Контакт для обратной связи: denisenkodns@gmail.com
+        <div className={classes.title}>
+          Контакты
+        </div>
+        <List>
+            <ListItem>
+              Электронная почта: denisenkodns@gmail.com
+            </ListItem>
+        </List>
       </Paper>
     )
   }
