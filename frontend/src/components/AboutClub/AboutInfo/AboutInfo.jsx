@@ -12,6 +12,9 @@ class AboutInfo extends React.Component {
           {text.length > 1 && text}
         </div>
       </Paper>
+      <Paper>
+        Контакт для обратной связи: denisenkodns@gmail.com
+      </Paper>
     )
   }
 }
