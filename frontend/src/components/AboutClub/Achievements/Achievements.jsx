@@ -20,7 +20,10 @@ class Achievements extends React.Component {
                 {achievements.map(entry =>
                   <ListItem>
                     <div className={classes.subheading}>
-                      {entry.trophy}
+                        {entry.url &&
+                            <a href={entry.url}>{entry.trophy}</a>
+                        }
+                        {!entry.url && entry.trophy}
                     </div>
                   </ListItem>
                     )}
