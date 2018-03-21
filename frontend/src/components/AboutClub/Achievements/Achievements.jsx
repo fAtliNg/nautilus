@@ -21,7 +21,7 @@ class Achievements extends React.Component {
                   <ListItem>
                     <div className={classes.subheading}>
                         {entry.url &&
-                            <a href={entry.url}>{entry.trophy}</a>
+                            <a className={classes.subheading} href={entry.url}>{entry.trophy}</a>
                         }
                         {!entry.url && entry.trophy}
                     </div>
