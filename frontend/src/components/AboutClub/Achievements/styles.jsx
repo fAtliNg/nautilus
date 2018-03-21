@@ -7,6 +7,7 @@ export default function styles (theme) {
       marginTop: theme.spacing.unit * 3
     }),
     title: theme.font.title,
-    subheading: theme.font.subheading
+    subheading: theme.font.subheading,
+    url: {...theme.font.subheading, textDecoration: 'none'}
   }
 }
