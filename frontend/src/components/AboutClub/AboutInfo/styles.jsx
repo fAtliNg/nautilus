@@ -5,6 +5,7 @@ export default function styles (theme) {
       paddingTop: 16,
       paddingBottom: 16
     }),
+    title: theme.font.title,
     subheading: theme.font.subheading
   }
 };
