@@ -11,15 +11,15 @@ class AboutInfo extends React.Component {
     const {text, classes} = this.props
     return (
       <Paper className={classes.textPaper}>
-        <div className={classes.subheading}>
-          {text.length > 1 && text}
-        </div>
+        {text.length && text.split('<br>').map(t => <div className={classes.subheading}>{t}</div>)}
         <div className={classes.title}>
           Контакты
         </div>
         <List>
             <ListItem>
-              Электронная почта: denisenkodns@gmail.com
+                <div className={classes.subheading}>
+                    Электронная почта: denisenkodns@gmail.com
+                </div>
             </ListItem>
         </List>
       </Paper>
