@@ -11,8 +11,6 @@ class AboutInfo extends React.Component {
         <div className={classes.subheading}>
           {text.length > 1 && text}
         </div>
-      </Paper>
-      <Paper>
         <div className={classes.title}>
           Контакты
         </div>
